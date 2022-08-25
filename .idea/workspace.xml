@@ -4,101 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f573e508-8606-4d07-88e6-d5c5e73a2bfd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/config/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/controllers/accountController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/controllers/bookController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/controllers/chatController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/controllers/commentController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/controllers/siteController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/middlewares/authJwt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/middlewares/fileUpload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/middlewares/verifySignUp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/models/accountModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/models/bookCategoryModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/models/bookModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/models/chatModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/models/cmtModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/models/reactionModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/publics/img/1660225285153--avatar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/publics/img/1660225551843--avatar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/publics/img/1660229357547--avatar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/publics/img/1660229892459--avatar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/publics/img/1660239027476--1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/routes/accountRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/routes/bookRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/routes/chatRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/routes/cmtRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/routes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/routes/siteRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/auth-header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/http.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/hooks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/rootSaga.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/App/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Chat/Components/Chat.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Chat/Pages/ChatContainer.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Chat/Pages/ChatInput.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Chat/Pages/Contacts.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Chat/Service/service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Content/Content.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Footer/Footer.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Header/Header.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Header/Service/service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Home/Components/AppContent.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Home/Components/AppFooter.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Home/Components/AppHeader.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Home/home.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Main/main.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Admin/Components/admin.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Admin/Service/service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Admin/adminSaga.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Admin/adminSlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Auth/Components/login.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Auth/Components/register.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Auth/Service/service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Auth/authSaga.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Auth/authSlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Book/Components/detailBook.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Book/Components/listBook.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Book/Pages/cmtBook.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Book/Pages/createBook.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Book/Pages/reactionBook.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Book/Pages/updateBook.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Book/Service/service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Book/bookSaga.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Book/bookSlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Community/Components/discussion.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Community/Components/group.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Community/Components/popularQuotes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Community/communitySlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Employee/Components/employee.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Employee/Service/service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Employee/employeeSaga.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Employee/employeeSlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Explore/Components/explore.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Explore/exploreSaga.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Explore/exploreSlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/News/Components/news.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/User/Components/user.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/User/Service/service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/User/userSaga.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/User/userSlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/styles/auth.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/styles/chat.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/styles/cmt.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/styles/detail.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/styles/news.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/styles/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f573e508-8606-4d07-88e6-d5c5e73a2bfd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,7 +50,7 @@
       <updated>1661448778597</updated>
       <workItem from="1661448779858" duration="346000" />
       <workItem from="1661449190010" duration="69000" />
-      <workItem from="1661449467551" duration="885000" />
+      <workItem from="1661449467551" duration="1204000" />
     </task>
     <servers />
   </component>
