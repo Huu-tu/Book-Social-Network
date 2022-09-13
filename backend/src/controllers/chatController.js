@@ -26,7 +26,6 @@ class chatController{
   async addMessage(req,res,next){
     try{
       const { from, to, content } = req.body;
-      console.log({from, to, content})
       const data = await Chat.create({
         content: { text: content },
         users: [from, to],

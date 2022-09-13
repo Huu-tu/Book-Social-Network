@@ -18,7 +18,7 @@ export default function Contacts({users, changeChat}){
         <ul className="list-unstyled chat-list mt-2 mb-0">
           {
             users.map((item, index) =>(
-                <li className="clearfix" key={index} onClick={() =>{ changeCurrentChat(item.fullName) }}>
+                <li className="clearfix" key={index} onClick={() =>{ changeCurrentChat(item) }}>
                   <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar" />
                   <div className="about">
                     <div className="name">{item.fullName}</div>

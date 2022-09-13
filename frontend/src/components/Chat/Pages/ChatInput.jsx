@@ -25,7 +25,6 @@ export default function ChatInput({ handleSendMsg }){
           </div>
         </form>
       </div>
-
     </>
   )
 }
