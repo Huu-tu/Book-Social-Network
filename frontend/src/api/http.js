@@ -27,7 +27,7 @@ export class Http  {
         })
     }
 
-    static putReactBook = (endPoint, payload) =>{
+    static putReactPost = (endPoint, payload) =>{
         return axios.post(BASE_URL + endPoint, payload, {
             headers: authHeader()
         });

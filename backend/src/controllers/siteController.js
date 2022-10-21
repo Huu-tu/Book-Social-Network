@@ -1,13 +1,14 @@
-const Account = require('../models/accountModel')
+const Account = require('../models/accountModel');
+const Post = require('../models/postModel');
 
 class siteController {
     //[GET] /
-   index =  (req, res) =>{
+   index(req, res){
     const result = 'hfsfello'
     res.send(result)
   }
 
-  currentUser = (req, res) =>{
+  currentUser(req, res){
      let userId = req.user._id;
 
      // console.log(userId)

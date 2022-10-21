@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import jwt_decode from "jwt-decode";
 import "../../../styles/auth.css";
 import { authActions } from "../authSlice";
 import AccountService from "../Service/service";
+import { GoogleOAuthProvider, GoogleLogin  } from '@react-oauth/google';
 
 export default function Login(){
     let navigate  = useNavigate();
@@ -66,6 +68,31 @@ export default function Login(){
         }
     }
 
+    const googleSuccess = async (res) =>{
+        const decode = jwt_decode(res.credential)
+        const formData = {
+            username: decode.email,
+            password: `${123456789}`,
+            fullName: decode.name,
+            email: decode.email,
+            role: "user"
+        }
+
+        const value = await  AccountService.loginGG(formData);
+        if (value.data === "Thap Bai"){
+            console.log("Thap bai")
+            navigate("/login")
+        }else {
+            localStorage.setItem("token", JSON.stringify(res.credential));
+        }
+        navigate("/main")
+        // console.log(formData)
+    }
+
+    const googleFail = async (err) =>{
+        console.log(err)
+    }
+
     return(
         <>
         <div className="container-fluid px-2 px-md-4 py-5 mx-auto">
@@ -83,7 +110,7 @@ export default function Login(){
                         </div>
                     </div>
                     <div className="col-lg-7">
-                        <div className="card2 card border-0 px-4 px-sm-5 py-5"> <small className="text-right mb-3"><a href="/login"><u>I already have an account</u></a></small>
+                        <div className="card2 card border-0 px-4 px-sm-5 py-5"> <small className="text-right mb-3"><a href="/register"><u>Sign Up an Account</u></a></small>
                             <h3 className="mb-1">Login In Form</h3>
                             <p className="mb-4 text-sm">Create our account and start learning with thousands of courses</p>
                             <form onSubmit={handleLogin}>
@@ -96,12 +123,18 @@ export default function Login(){
                                     <h6 className="mb-0 text-sm">Pass Word</h6>
                                     </label> <input type="password" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" onChange={handleChange} value={input.password}/>
                                     <p>{error.password}</p>
-
                                 </div>
                                 <div className="row mb-4">
                                     <div className="col-md-6"> <button className="btn btn-blue text-center mb-1 py-2">Create Account</button> </div>
                                 </div>
                             </form>
+                            <GoogleOAuthProvider clientId={`228114178670-0du3n4r3oci2v9ckdqntb49s0jvp9knp.apps.googleusercontent.com`}>
+                                <GoogleLogin
+                                  onSuccess={(response) => googleSuccess(response)}
+                                  onError={() => googleFail()}
+                                >
+                                </GoogleLogin>
+                            </GoogleOAuthProvider>
                         </div>
                     </div>
                 </div>

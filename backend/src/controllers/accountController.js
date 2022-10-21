@@ -50,6 +50,30 @@ class accountController{
       }
     }
 
+    async loginGG(req,res){
+      let username = req.body.username;
+      let password = req.body.password;
+      let fullName = req.body.fullName;
+      let email = req.body.email;
+      let role = req.body.role;
+
+      let data = await Account.findOne({username})
+
+      if (data){
+        res.json('User Nay da ton tai')
+      }else {
+        await Account.create({
+          username: username,
+          password: password,
+          fullName: fullName,
+          email: email,
+          role: role
+        })
+      }
+
+      // console.log(username,password)
+    }
+
     async register(req,res){
       let username = req.body.username;
       let password = req.body.password;

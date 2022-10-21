@@ -1,23 +1,21 @@
 import React from "react";
-import {
-  Link,
-  Outlet
-} from 'react-router-dom';
 import Header from "../Header/Header";
 import Content from "../Content/Content";
+import "./Main.css"
+import Sidebar from "../Sidebar/Sidebar";
+import Rightbar from "../Rightbar/Rightbar";
 
-
-export  default  function Main(){
+export default function Main(){
   return(
     <>
       <Header />
-      <Content />
-
-      {/*<div>*/}
-      {/*  <Link to="/main/listBook"> List </Link>*/}
-      {/*  <Link to="/main/detailBook"> Detail </Link>*/}
-      {/*</div>*/}
-      {/*<Outlet />*/}
+      <div className="container-fluid gedf-wrapper" style={{ marginTop: "100px" }}>
+        <div className="row">
+          <Sidebar />
+          <Content />
+          <Rightbar />
+        </div>
+      </div>
     </>
   )
 }

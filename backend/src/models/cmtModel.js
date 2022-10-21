@@ -10,9 +10,9 @@ const CmtSchema  = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Account',
       },
-    book:{
+    post:{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Book',
+      ref: 'Post',
     }
 },
     {

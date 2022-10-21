@@ -11,7 +11,7 @@ class verifySignUp {
     if (
       role === 'staff' ||
       role === 'admin' ||
-      role === 'manager' ||
+      role === 'user' ||
       role === 'coordinator'
     ) {
       next();

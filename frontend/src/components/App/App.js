@@ -5,16 +5,18 @@ import {
 import {
   Login,
   Register,
-  ListBook,
-  DetailBook,
-  CreateBook,
   Group,
   Discussion,
-  PopularQuotes, Explore, Admin, Employee, User, News,
+  PopularQuotes, Explore, Admin, User, News,
 } from '../../modules/index';
 import Home from "../Home/home";
 import Main from "../Main/main";
 import Chat from "../Chat/Components/Chat";
+import Profile from "../Profile/profile";
+import Notification from "../Notification/notification";
+import ListPost from "../../modules/Post/Components/listPost";
+import CreatePost from "../../modules/Post/Pages/createPost";
+import DetailPost from "../../modules/Post/Components/detailPost";
 
 function App() {
   return (
@@ -29,12 +31,13 @@ function App() {
 
         {/*Main*/}
         <Route path="/main" element={<Main />} />
+        <Route path="/profile" element={<Profile />}/>
+        <Route path="/notification" element={<Notification />}/>
 
-        {/*Book*/}
-        <Route path="/listBook" element={<ListBook />} />
-        <Route path="/detailBook/:id" element={<DetailBook />} />
-        <Route path="/createBook" element={<CreateBook />} />
-        <Route path="/updateBook" element={<ListBook />} />
+        {/*Post*/}
+        <Route path="/listBook" element={<ListPost />} />
+        <Route path="/detailPost/:id" element={<DetailPost />} />
+        <Route path="/createPost" element={<CreatePost />} />
 
         {/*Chat*/}
         <Route path="/chat" element={<Chat />}/>
@@ -50,7 +53,6 @@ function App() {
 
         {/*Roles*/}
         <Route path="admin" element={<Admin />} />
-        <Route path="employee" element={<Employee />} />
         <Route path="user" element={<User />} />
 
         {/*<Route path="main" element={<Main />}>*/}

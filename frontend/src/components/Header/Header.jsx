@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import UserService from "./Service/service";
+import { BsFillChatDotsFill, BsBell, BsPersonCircle, BsFillBookFill } from "react-icons/bs";
 
 export default function Header(){
   const[data, setData] = useState({})
@@ -37,10 +38,13 @@ export default function Header(){
                 <a className="nav-link page-scroll" href="/main">Home <span className="sr-only">(current)</span></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link page-scroll" href="/main">Notification</a>
+                <a className="nav-link page-scroll" href="/notification"><BsBell/></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link page-scroll" href="/chat">Chat</a>
+                <a className="nav-link page-scroll" href="/chat"><BsFillChatDotsFill/></a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link page-scroll" href="/createBook"><BsFillBookFill/></a>
               </li>
               {/*<li className="nav-item">*/}
               {/*  <a className="nav-link page-scroll" href="#features">My Books</a>*/}
@@ -67,14 +71,15 @@ export default function Header(){
               {/*</li>*/}
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                       className="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                    <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                  </svg>
+                  {/*<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"*/}
+                  {/*     className="bi bi-person-circle" viewBox="0 0 16 16">*/}
+                  {/*  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>*/}
+                  {/*  <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>*/}
+                  {/*</svg>*/}
+                  <BsPersonCircle />
                 </a>
                 <div className="dropdown-menu">
-                  <a className="dropdown-item" href="/group">{data.fullName}</a>
+                  <a className="dropdown-item" href="/profile">{data.fullName}</a>
                   <a className="dropdown-item" href="/discussion">Discussions</a>
                   <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="/" onClick={handleLogOut}>Log out</a>
