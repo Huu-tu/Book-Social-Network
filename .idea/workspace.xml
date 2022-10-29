@@ -5,16 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f573e508-8606-4d07-88e6-d5c5e73a2bfd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/publics/img/1666375029565--iphone.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/publics/img/1666375244742--eatlove.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/routes/notifyRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/socketServer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/SocketioClient.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/features/profile/profileSlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/features/socket/socketSlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/App/context/socket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Header/Styles/header.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/modules/Post/Pages/showCmt.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" afterDir="false" />
@@ -182,8 +172,8 @@
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/http.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/hooks.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/notifyController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/rootSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/notifyModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/hooks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/rootSaga.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/App/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Chat/Components/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Chat/Components/Chat.jsx" afterDir="false" />
@@ -350,7 +340,7 @@
       <workItem from="1667009918175" duration="7293000" />
       <workItem from="1667041888408" duration="618000" />
       <workItem from="1667049685550" duration="17532000" />
-      <workItem from="1667078777786" duration="300000" />
+      <workItem from="1667078777786" duration="734000" />
     </task>
     <servers />
   </component>
