@@ -1,5 +1,4 @@
 import React, {useEffect, useRef, useState} from "react";
-import { io } from "socket.io-client";
 import Contacts from "../Pages/Contacts";
 import "../../../styles/chat.css"
 import Header from "../../Header/Header";
@@ -7,28 +6,27 @@ import ChatContainer from "../Pages/ChatContainer";
 import ChatService from "../Service/service";
 import UserService from "../../Header/Service/service";
 import ChatInput from "../Pages/ChatInput";
+import { io } from "socket.io-client";
 
 export default function Chat(){
-  const socket = useRef();
+  // const socket = useRef();
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
 
   const [messages, setMessages] = useState([]);
-  const [arrivalMessage, setArrivalMessage] = useState(null);
+  // const [arrivalMessage, setArrivalMessage] = useState(null);
 
-  useEffect(() =>{
-    socket.current = io("ws://localhost:4000");
-    socket.current.on("getMessage", data=>{
-      setArrivalMessage({
-        sender: data.senderId,
-        content: data.content,
-        createdAt: Date.now(),
-      });
-
-      // console.log(arrivalMessage.sender)
-    })
-  }, [])
+  // useEffect(() =>{
+  //   socket.current = io("ws://localhost:4000");
+  //   socket.current.on("getMessage", data=>{
+  //     setArrivalMessage({
+  //       sender: data.senderId,
+  //       content: data.content,
+  //       createdAt: Date.now(),
+  //     });
+  //   })
+  // }, [])
 
   // useEffect(() => {
   //   arrivalMessage &&
@@ -83,13 +81,13 @@ export default function Chat(){
     getValue()
   },[currentChat])
 
-  useEffect(() =>{
-    // console.log(contacts.username)
-    socket.current.emit("addUser", contacts)
-    socket.current.on("getUsers", users =>{
-      console.log(users)
-    })
-  },[contacts])
+  // useEffect(() =>{
+  //   // console.log(contacts.username)
+  //   socket.current.emit("addUser", contacts)
+  //   socket.current.on("getUsers", users =>{
+  //     console.log(users)
+  //   })
+  // },[contacts])
 
   const handleSendMsg = async (msg) =>{
     await ChatService.sendMessage({
@@ -102,11 +100,11 @@ export default function Chat(){
     //   (member) => member !== contacts._id
     // );
 
-    socket.current.emit("send_message",{
-      senderId: currentUser._id,
-      receiverId: currentChat._id,
-      content: msg
-    })
+    // socket.current.emit("send_message",{
+    //   senderId: currentUser._id,
+    //   receiverId: currentChat._id,
+    //   content: msg
+    // })
 
     const msgs = [...messages];
     msgs.push({ fromSelf: true, chat: msg });

@@ -3,6 +3,8 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const socket = require("socket.io");
 const cookieSession = require("cookie-session");
+const path = require('path');
+const socketServer = require('./socketServer')
 
 require('dotenv').config();
 
@@ -23,11 +25,22 @@ app.use(express.json({ limit: '30mb', extended: true }));
 app.use(express.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 app.use(cookieParser());
+app.use("/img", express.static(path.join(__dirname, "publics/img")));
+
+
+// const http = require('http').createServer(app)
+// const io = require('socket.io')(http)
+
 
 db.connect();
 route(app);
 
-// app.listen(port, () =>{
+// io.on('connection', socket=>{
+//   // socketServer(socket)
+//   console.log(socket.id + 'connect')
+// })
+
+// http.listen(port, () =>{
 //     console.log(`Server is listening at http://localhost:${port}`)
 // });
 
@@ -37,53 +50,12 @@ const server = app.listen(port, () =>{
 
 const io = socket(server,{
     cors:{
-        origin: "*",
-        // origin: "http://localhost:3000/chat",
-        // methods: ["GET", "POST"],
-        // allowedHeaders: ["my-custom-header"],
-        // credentials: true
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"],
     }
 });
 
-let users = [];
+io.on('connection', socket=>{
+  socketServer(socket)
+})
 
-const addUser = (userId, socketId) =>{
-    users.push({ userId, socketId })
-}
-
-const removeUser = (socketId) =>{
-    users = users.filter((user) => user.socketId !== socketId);
-}
-
-let getUser = (userId)=>{
-    return users.find((user) => user.userId === userId)
-}
-
-io.on("connection", (socket)=>{
-    //When connect
-    console.log("New client connected")
-
-    //take userId and socketId from user
-    socket.on("addUser",(user) =>{
-        user.map(s=>{
-            addUser(s._id, socket.id)
-            io.emit("getUsers", users)
-        })
-    })
-
-    // send and get message
-    socket.on("send_message", ({ senderId, receiverId, content }) => {
-        let user = getUser(receiverId)
-        console.log(user.socketId)
-        io.to(user.socketId).emit("getMessage", {
-            senderId,
-            content
-        });
-    });
-
-    socket.on("disconnect", () => {
-        console.log("USER DISCONNECTED");
-        removeUser(socket.id);
-        io.emit("getUsers", users)
-    });
-});

@@ -6,14 +6,20 @@ import "../Styles/detail.css";
 import "../Styles/cmt.css";
 import CmtPost from "../Pages/cmtPost";
 import ReactionPost from "../Pages/reactionPost";
+import { useSelector } from "react-redux";
+import ShowCmt from "../Pages/showCmt";
 
 export default function DetailPost(){
   let navigate = useNavigate();
   const { id } = useParams();
   const[data, setData] = useState({});
+  // const socket= useSelector((state) =>state.socket.value)
+
+  // useEffect(()=>{
+  //   socket?.emit("addUser", user);
+  // },[socket, user])
 
   const getValue = async () =>{
-    // console.log(id)
     await PostService.detailPost(id)
       .then((res) =>{
         setData(res.data)
@@ -22,6 +28,8 @@ export default function DetailPost(){
         console.log(err)
       })
   }
+
+  // console.log(data.comments)
 
   useEffect(()=>{
     getValue()
@@ -37,7 +45,7 @@ export default function DetailPost(){
           </div>
           <div className="row m-0">
             <div className="col-lg-4 left-side-product-box pb-3">
-              <img src="https://i.pinimg.com/236x/97/0c/f9/970cf9ca427d0598a3a104014000fde6.jpg" className="border p-3" />
+              <img src={`http://localhost:4000/img/` + `${data.image}`} className="border p-3" alt="" />
             </div>
             <div className="col-lg-8">
               <div className="right-side-pro-detail border p-3 m-0">
@@ -63,8 +71,17 @@ export default function DetailPost(){
             </div>
           </div>
 
-          <ReactionPost IdPost={`${data._id}`} />
-          <CmtPost IdPost={`${data._id}`} />
+          <ReactionPost IdPost={`${data._id}`} UserName={`${data.author}`}/>
+          <CmtPost IdPost={`${data._id}`} CmtPost={`${data.comments}`}/>
+          {
+            data.comments?.map((comment)=>(
+              <ShowCmt CmtPost={`${comment}`}/>
+              // <div key={`${comment}`}>
+              //   <h2>Huutu</h2>
+              //   <p>ádasd</p>
+              // </div>
+            ))
+          }
         </div>
       </div>
     </>

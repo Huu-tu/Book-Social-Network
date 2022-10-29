@@ -3,13 +3,16 @@ import {Http} from "../../../api/http";
 const API_ENDPOINT = {
   SHOWPOST: "/post/showPost",
   DETAILPOST: "/post/detailPost",
+  GETAUTHOR: "/post/getAuthor",
   CREATEPOST: "/post/createPost",
   UPDATEPOST: "/post/updatePost",
   DELETEPOST: "/post/deletePost",
   LIKEPOST: "/post/likePost",
   DISLIKEPOST: "/post/disLikePost",
+  CMTGET: "/post/cmtGet",
   CMTPOST: "/post/cmtPost",
   GETCURRENTUSER: "/currentUser",
+  GETIMG: "/img"
 }
 
 class PostServices{
@@ -17,12 +20,20 @@ class PostServices{
     return Http.get(API_ENDPOINT.SHOWPOST)
   }
 
+  getAuthor(id){
+    return Http.get(API_ENDPOINT.GETAUTHOR + `/${id}`)
+  }
+
   detailPost(id){
     return Http.get(API_ENDPOINT.DETAILPOST + `/${id}`)
   }
 
   createPost(data){
-    return Http.post(API_ENDPOINT.CREATEPOST, data)
+    return Http.createPost(API_ENDPOINT.CREATEPOST, data)
+  }
+
+  getImg(img){
+    return Http.get(API_ENDPOINT.GETIMG `/${img}`)
   }
 
   updatePost(id, data){
@@ -43,6 +54,10 @@ class PostServices{
 
   getCurrentUser(){
     return Http.get(API_ENDPOINT.GETCURRENTUSER)
+  }
+
+  cmtGet(id){
+    return Http.get(API_ENDPOINT.CMTGET + `/${id}`)
   }
 
   cmtPost(data){

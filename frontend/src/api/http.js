@@ -19,7 +19,7 @@ export class Http  {
         return axios.post(BASE_URL + endPoint, payload)
     }
 
-    static postBook = (endPoint, payload) =>{
+    static createPost = (endPoint, payload) =>{
         return axios.post(BASE_URL + endPoint, payload,{
             headers: {
                 'content-type': 'multipart/form-data',

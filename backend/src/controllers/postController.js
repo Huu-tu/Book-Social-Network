@@ -27,6 +27,16 @@ class postController{
     }
   }
 
+  async getAuthor(req,res){
+    Post.findOne({_id: req.params.id})
+      .then((data) =>{
+        res.json(data)
+      })
+      .catch((err) =>{
+        res.json("Failed")
+      });
+  }
+
   async createPost(req,res){
     let author = req.body.author;
     let description = req.body.description;
@@ -92,21 +102,33 @@ class postController{
     }
   }
 
+  async cmtGet(req,res){
+    const _id = req.params.id;
+    const  Cmt = await Comment.findOne({_id: _id})
+        // res.json(data)
+        // console.log(Cmt.author)
+    if (Cmt) {
+      const Author = await Account.findOne({_id: Cmt.author})
+      // console.log(Cmt.content,  Author.fullName)
+      res.json({content: Cmt.content, author: Author.fullName})
+    }else {
+      res.json("Don't have")
+    }
+  }
+
   async cmtPost(req,res){
     try{
-      const {id} = req.body;
-      const {content} = req.body;
-      let userId = req.user._id;
+      const content = req.body.content;
+      const authorId = req.body.author;
+      const postId = req.body.post;
 
       const formData = {
         content,
       };
 
-      const post = await Post.findOne({id})
-      console.log(post)
+      const post = await Post.findOne({_id:postId})
 
-      const author = await Account.findOne({_id: userId})
-      console.log(author)
+      const author = await Account.findOne({_id: authorId})
 
       formData.author = author._id
       formData.post = post._id

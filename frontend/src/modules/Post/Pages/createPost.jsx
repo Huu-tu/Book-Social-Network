@@ -31,12 +31,10 @@ export default function CreatePost(){
     e.preventDefault()
 
     const newPost = {
-      author: data._id,
+      author: data.fullName,
       description: description.current.value,
       image: file
     }
-    console.log(newPost)
-
     await PostService.createPost(newPost)
 
     window.location.reload();

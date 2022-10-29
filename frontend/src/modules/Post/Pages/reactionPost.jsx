@@ -1,9 +1,13 @@
 import React from "react";
 import PostService from "../Service/service";
+import { useSelector } from "react-redux";
 
-export default function ReactionPost(IdPost){
+export default function ReactionPost(IdPost, UserName){
+  const user = useSelector((state) =>state.profile.value)
+  const socket= useSelector((state) =>state.socket.value)
 
   const Id_Post = IdPost
+  const Author = UserName
 
   const onSubmitLike = async (event)=>{
     event.preventDefault();
@@ -17,9 +21,17 @@ export default function ReactionPost(IdPost){
     await PostService.disLikePost(Id_Post)
   }
 
-  const onSubmitCmt = ()=>{
+  const onSubmitCmt = ()=> {
+
 
   }
+
+    const handleNotification = async (receiverName) =>{
+      socket.emit("sendNotification", {
+        senderName: user.fullName,
+        receiverName: receiverName
+      })
+    }
 
   return(
     <>
@@ -27,7 +39,7 @@ export default function ReactionPost(IdPost){
         <ul className="list-inline">
           <li className="list-inline-item">
             <form id="like-form" className="form-inline pull-right" onSubmit={onSubmitLike}>
-              <button type="submit" className="btn btn-light contact">Like</button>
+              <button type="submit" className="btn btn-light contact" onClick={() =>handleNotification(Author)}>Like</button>
             </form>
           </li>
           <li className="list-inline-item">

@@ -1,14 +1,23 @@
 import React, {useEffect, useState} from "react";
 import PostService from "../../Post/Service/service";
 import CreatePost from "../Pages/createPost";
+import { useSelector } from "react-redux";
 
 export default function ListPost(){
   const[data, setData] = useState([]);
+  const user = useSelector((state) =>state.profile.value)
+  const socket= useSelector((state) =>state.socket.value)
+
+  const handleNotification = async (receiverName) =>{
+    socket.emit("sendNotification", {
+      senderName: user.fullName,
+      receiverName: receiverName
+    })
+  }
 
   const getValue = async ()=>{
     await PostService.showPost()
       .then((res) =>{
-        // console.log(res.data)
         setData(res.data)
       })
       .catch((err)=>{
@@ -21,7 +30,7 @@ export default function ListPost(){
   },[])
 
   return(
-    <>
+    <div className="col-md-6 gedf-main">
       <CreatePost />
       {
         data.map((item) =>(
@@ -33,8 +42,8 @@ export default function ListPost(){
                     <img className="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="" />
                   </div>
                   <div className="ml-2">
-                    {/*<div className="h5 m-0">@LeeCross</div>*/}
-                    <div className="h7 m-0">Trending this week in one of your favorite genres, Business</div>
+                    <div className="h5 m-0">{item.author}</div>
+                    {/*<div className="h7 m-0">Trending this week in one of your favorite genres, Business</div>*/}
                   </div>
                 </div>
                 <div>
@@ -59,7 +68,6 @@ export default function ListPost(){
               <a className="card-link" href={`/detailPost/${item._id}`}>
                 <h5 className="card-title">{item.description}.</h5>
               </a>
-
               {/*<p className="card-text">*/}
               {/*  {item.description}.*/}
               {/*</p>*/}
@@ -70,6 +78,6 @@ export default function ListPost(){
           </div>
         ))
       }
-    </>
+    </div>
   )
 }

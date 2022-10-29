@@ -1,14 +1,18 @@
 import { configureStore, combineReducers  } from '@reduxjs/toolkit';
-import authReducer from '../modules/Auth/authSlice';
-import userReducer from '../modules/User/userSlice';
 import adminReducer from '../modules/Admin/adminSlice';
+import profileReducer from '../app/features/profile/profileSlice';
+import socketReducer from '../app/features/socket/socketSlice'
 
 export const rootReducer = combineReducers({
-    auth: authReducer,
-    user: userReducer,
     admin: adminReducer,
+    profile: profileReducer,
+    socket: socketReducer
 });
 
 export const store = configureStore({
     reducer: rootReducer,
+    middleware: getDefaultMiddleware =>
+      getDefaultMiddleware({
+          serializableCheck: false,
+      }),
 });

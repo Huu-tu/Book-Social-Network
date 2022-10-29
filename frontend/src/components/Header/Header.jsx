@@ -1,9 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import UserService from "./Service/service";
 import { BsFillChatDotsFill, BsBell, BsPersonCircle, BsFillBookFill } from "react-icons/bs";
+import Chat from "../Chat/Components/Chat";
+import "./Styles/header.css"
+import { useSelector } from "react-redux";
 
 export default function Header(){
-  const[data, setData] = useState({})
+
+  const[data, setData] = useState({});
+  const [notifications, setNotifications] = useState([]);
+  const [open, setOpen] = useState(false);
 
   const handleLogOut = async () =>{
     localStorage.removeItem('token')
@@ -24,6 +30,20 @@ export default function Header(){
     getValue()
   },[])
 
+  // useEffect(()=>{
+  //   socket.on("getNotification",value=>{
+  //     setNotifications((prev) => [...prev, value]);
+  //   })
+  // },[socket])
+
+
+  // const displayNotification = (fullName) =>{
+  //   // console.log(fullName)
+  //   return(
+  //   //    <span className="notification">{`${senderName} like your post.`}</span>
+  //     <span className="dropdown-item">{`${fullName.senderName} like your post.`}</span>
+  //   )
+  // }
   return(
     <>
       {/* Navigation  */}
@@ -37,8 +57,15 @@ export default function Header(){
               <li className="nav-item">
                 <a className="nav-link page-scroll" href="/main">Home <span className="sr-only">(current)</span></a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link page-scroll" href="/notification"><BsBell/></a>
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                  <BsBell/>
+                </a>
+                <div className="dropdown-menu">
+                  {/*{notifications.map((fullName) => displayNotification(fullName))}*/}
+                  {/*    <span className="dropdown-item" >Groups</span>*/}
+                  {/*    <span className="dropdown-item" >Discussions</span>*/}
+                </div>
               </li>
               <li className="nav-item">
                 <a className="nav-link page-scroll" href="/chat"><BsFillChatDotsFill/></a>
@@ -48,16 +75,6 @@ export default function Header(){
               </li>
               {/*<li className="nav-item">*/}
               {/*  <a className="nav-link page-scroll" href="#features">My Books</a>*/}
-              {/*</li>*/}
-              {/*<li className="nav-item dropdown">*/}
-              {/*  <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">*/}
-              {/*    Review*/}
-              {/*  </a>*/}
-              {/*  <div className="dropdown-menu">*/}
-              {/*    <a className="dropdown-item" href="/explore">Explore</a>*/}
-              {/*    <a className="dropdown-item" href="/news">News</a>*/}
-              {/*    <a className="dropdown-item" href="/quote">Choice Awards</a>*/}
-              {/*  </div>*/}
               {/*</li>*/}
               {/*<li className="nav-item dropdown">*/}
               {/*  <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">*/}

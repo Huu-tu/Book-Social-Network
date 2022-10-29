@@ -17,10 +17,43 @@ import Notification from "../Notification/notification";
 import ListPost from "../../modules/Post/Components/listPost";
 import CreatePost from "../../modules/Post/Pages/createPost";
 import DetailPost from "../../modules/Post/Components/detailPost";
+import {useSelector, useDispatch} from 'react-redux';
+import io from "socket.io-client";
+import {useEffect, useState} from "react";
+import {getDataSocket} from "../../app/features/socket/socketSlice";
+import SocketioClient from "../../SocketioClient";
+import UserService from "../Header/Service/service";
+import {getDataUser} from "../../app/features/profile/profileSlice";
 
 function App() {
+  const dispatch = useDispatch();
+  const[user,setUser] = useState({});
+
+  const getCurrentUser = async () =>{
+    await UserService.getCurrentUser()
+      .then((res) =>{
+        setUser(res.data);
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
+  }
+
+  useEffect(() =>{
+    getCurrentUser();
+  });
+
+  dispatch(getDataUser(user))
+
+  useEffect(()=>{
+    const socket = io("http://localhost:4000");
+    dispatch(getDataSocket(socket))
+    return ()=>socket.close();
+  },[dispatch])
+
   return (
     <div className="App">
+      {<SocketioClient />}
       <Routes>
         {/*Intro*/}
         <Route path="/" element={<Home />} />
