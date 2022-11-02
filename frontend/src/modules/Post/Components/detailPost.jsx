@@ -52,7 +52,7 @@ export default function DetailPost(){
                 <div className="row">
                   <div className="col-lg-12">
                     <h5>Author</h5>
-                    {/*<p className="m-0 p-0">{data.bookTitle}</p>*/}
+                    <p className="m-0 p-0">{data.authorName}</p>
                   </div>
                   <div className="col-lg-12">
                     <hr className="p-0 m-0" />
@@ -71,15 +71,16 @@ export default function DetailPost(){
             </div>
           </div>
 
-          <ReactionPost IdPost={`${data._id}`} UserName={`${data.author}`}/>
+          <ReactionPost
+            IdPost={`${data._id}`}
+            IdAuthor={`${data.authorId}`}
+            Description={`${data.description}`}
+            IImage={`${data.image}`}
+          />
           <CmtPost IdPost={`${data._id}`} CmtPost={`${data.comments}`}/>
           {
             data.comments?.map((comment)=>(
               <ShowCmt CmtPost={`${comment}`}/>
-              // <div key={`${comment}`}>
-              //   <h2>Huutu</h2>
-              //   <p>ádasd</p>
-              // </div>
             ))
           }
         </div>

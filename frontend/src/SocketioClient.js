@@ -6,8 +6,12 @@ const SocketioClient = () => {
   const user= useSelector((state) =>state.profile.value)
 
   useEffect(()=>{
-    socket.emit('joinUser', user._id)
+      socket?.emit('joinUser', user._id)
   },[socket,user._id])
+
+  // useEffect(() =>{
+  //
+  // },[])
 
   return(
     <></>

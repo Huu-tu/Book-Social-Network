@@ -38,18 +38,20 @@ class postController{
   }
 
   async createPost(req,res){
-    let author = req.body.author;
+    let authorId = req.body.authorId;
+    let authorName = req.body.authorName;
     let description = req.body.description;
     let image = req.file.filename;
 
     const data = await Post.create({
+      authorId,
       description,
-      author,
+      authorName,
       image
     })
 
     if (data){
-      res.json("Success");
+      return  res.status(200).json("Success");
     }else {
       res.json("Failed")
     }
@@ -58,17 +60,20 @@ class postController{
   async likePost(req,res){
     try{
       const { id } = req.body;
-      const post = await Post.findOne({id})
-      let userId = req.user._id.toString();
+      // const  _id  = id.IdPost;
+      const post = await Post.findOne({_id:id})
+      const userId = req.user._id;
       const postLike = post.likes;
       if (postLike.includes(userId)){
         console.log('Post already liked')
         // res.json('Post already liked')
       }else {
-        postLike.unshift(req.user._id);
+        postLike.unshift(userId);
         await post.save();
-        console.log('Idea liked');
-        // res.json('Idea liked')
+        // console.log('Idea liked');
+        return res.json({
+          userId, post
+        })
       }
     }catch (err){
       console.log('Server Error', err);
@@ -79,8 +84,9 @@ class postController{
   async disLikePost(req,res){
     try{
       const { id } = req.body;
-      const post = await Post.findOne({id})
-      let userId = req.user._id.toString();
+      // const  _id  = id.IdPost;
+      const post = await Post.findOne({_id:id})
+      let userId = req.user._id;
       const postLike = post.likes;
       if (postLike.includes(userId)){
         const removeIndex = postLike

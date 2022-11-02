@@ -23,7 +23,9 @@ const NotifySchema = new Schema({
       required: false,
     },
     recipient: {
-      type: mongoose.Schema.Types.ObjectId,
+      // type: mongoose.Schema.Types.ObjectId,
+      type: String,
+      required: false,
     },
     senders: {
       type: mongoose.Schema.Types.ObjectId,
@@ -31,6 +33,7 @@ const NotifySchema = new Schema({
     }
   },
   {
+    timestamps:true,
     collection: 'notifies',
   },
 )

@@ -4,11 +4,11 @@ import { BsFillChatDotsFill, BsBell, BsPersonCircle, BsFillBookFill } from "reac
 import Chat from "../Chat/Components/Chat";
 import "./Styles/header.css"
 import { useSelector } from "react-redux";
+import NotifyService from "../Notification/Service/service";
 
 export default function Header(){
-
   const[data, setData] = useState({});
-  const [notifications, setNotifications] = useState([]);
+  const [notify, setNotify] = useState([]);
   const [open, setOpen] = useState(false);
 
   const handleLogOut = async () =>{
@@ -30,20 +30,19 @@ export default function Header(){
     getValue()
   },[])
 
-  // useEffect(()=>{
-  //   socket.on("getNotification",value=>{
-  //     setNotifications((prev) => [...prev, value]);
-  //   })
-  // },[socket])
+  const getNotify = async ()=>{
+    await NotifyService.getNotify()
+      .then((res)=>{
+        setNotify(res.data)
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+  }
 
-
-  // const displayNotification = (fullName) =>{
-  //   // console.log(fullName)
-  //   return(
-  //   //    <span className="notification">{`${senderName} like your post.`}</span>
-  //     <span className="dropdown-item">{`${fullName.senderName} like your post.`}</span>
-  //   )
-  // }
+  useEffect(()=>{
+    getNotify()
+  },[])
   return(
     <>
       {/* Navigation  */}
@@ -58,14 +57,18 @@ export default function Header(){
                 <a className="nav-link page-scroll" href="/main">Home <span className="sr-only">(current)</span></a>
               </li>
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                {/*<a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">*/}
+                {/*  <BsBell/>*/}
+                {/*</a>*/}
+                {/*<div className="dropdown-menu">*/}
+                {/*  /!*{notifications.map((fullName) => displayNotification(fullName))}*!/*/}
+                {/*  /!*    <span className="dropdown-item" >Groups</span>*!/*/}
+                {/*  /!*    <span className="dropdown-item" >Discussions</span>*!/*/}
+                {/*</div>*/}
+                <a className="nav-link page-scroll" href="/notification">
                   <BsBell/>
+                  <span style={{position:"absolute", transform:"translate(-10px,18px)",color:'white', fontSize:'10px'}}>{notify && notify.length}</span>
                 </a>
-                <div className="dropdown-menu">
-                  {/*{notifications.map((fullName) => displayNotification(fullName))}*/}
-                  {/*    <span className="dropdown-item" >Groups</span>*/}
-                  {/*    <span className="dropdown-item" >Discussions</span>*/}
-                </div>
               </li>
               <li className="nav-item">
                 <a className="nav-link page-scroll" href="/chat"><BsFillChatDotsFill/></a>

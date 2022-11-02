@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import PostService from "../../Post/Service/service";
 import CreatePost from "../Pages/createPost";
 import { useSelector } from "react-redux";
+import moment from 'moment'
 
 export default function ListPost(){
   const[data, setData] = useState([]);
@@ -42,7 +43,7 @@ export default function ListPost(){
                     <img className="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="" />
                   </div>
                   <div className="ml-2">
-                    <div className="h5 m-0">{item.author}</div>
+                    <div className="h5 m-0">{item.authorName}</div>
                     {/*<div className="h7 m-0">Trending this week in one of your favorite genres, Business</div>*/}
                   </div>
                 </div>
@@ -64,7 +65,7 @@ export default function ListPost(){
 
             </div>
             <div className="card-body">
-              <div className="text-muted h7 mb-2"><i className="fa fa-clock-o"></i> 10 min ago</div>
+              <div className="text-muted h7 mb-2"><i className="fa fa-clock-o"></i>{moment(item.createdAt).fromNow()}</div>
               <a className="card-link" href={`/detailPost/${item._id}`}>
                 <h5 className="card-title">{item.description}.</h5>
               </a>

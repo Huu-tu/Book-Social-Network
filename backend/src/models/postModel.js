@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 
 const PostSchema = new Schema(
   {
-    author: {
+    authorId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+    },
+    authorName: {
       type: String,
       required: true,
     },

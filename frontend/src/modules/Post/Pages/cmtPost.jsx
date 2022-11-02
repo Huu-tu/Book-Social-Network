@@ -54,10 +54,7 @@ export default function CmtPost(IdPost,CmtPost){
           <button type="submit" className="btn btn-primary btn-block">Comment</button>
         </form>
 
-        <div>
-          <h2>Huutu</h2>
-          <p>ádasd</p>
-        </div>
+        {/*;*/}
       </div>
 
     </>

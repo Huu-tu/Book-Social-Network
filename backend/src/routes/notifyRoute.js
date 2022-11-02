@@ -8,6 +8,6 @@ router.post('/createNotify', [AuthJwt.checkLogin, VerifySignUp.checkPermission],
 router.get('/getNotify', [AuthJwt.checkLogin, VerifySignUp.checkPermission],NotifyController.getNotify);
 router.delete('/removeNotify', [AuthJwt.checkLogin, VerifySignUp.checkPermission],NotifyController.removeNotify);
 router.patch('/isReadNotify', [AuthJwt.checkLogin, VerifySignUp.checkPermission],NotifyController.isReadNotify);
-router.delete('/deleteAllNotifies', [AuthJwt.checkLogin, VerifySignUp.checkPermission],NotifyController.deleteAllNotifies);
+router.delete('/deleteAllNotify', [AuthJwt.checkLogin, VerifySignUp.checkPermission],NotifyController.deleteAllNotifies);
 
 module.exports = router;

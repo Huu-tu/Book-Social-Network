@@ -1,0 +1,24 @@
+.notify{
+    margin-left: 150px;
+    width: 800px;
+    border: none;
+    border-radius: 20px;
+    background-color: #597AFD;
+}
+
+.notifyH6{
+    color: #E5F3FF;
+}
+.notifyH2{
+    color: #E5F3FF;
+}
+.notifyText{
+    color: #B2C9FF;
+}
+
+.sub-img{
+    vertical-align: middle;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}

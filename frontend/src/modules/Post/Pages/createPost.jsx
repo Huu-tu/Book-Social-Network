@@ -30,15 +30,17 @@ export default function CreatePost(){
   const submitHandler = async(e)=>{
     e.preventDefault()
 
+    //post
     const newPost = {
-      author: data.fullName,
+      authorId: data._id,
+      authorName: data.fullName,
       description: description.current.value,
       image: file
     }
+
     await PostService.createPost(newPost)
 
     window.location.reload();
-
   }
 
   return(

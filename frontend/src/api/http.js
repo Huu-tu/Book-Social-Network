@@ -16,7 +16,9 @@ export class Http  {
     }
 
     static post = (endPoint, payload) =>{
-        return axios.post(BASE_URL + endPoint, payload)
+        return axios.post(BASE_URL + endPoint, payload,{
+            headers: authHeader()
+        })
     }
 
     static createPost = (endPoint, payload) =>{
@@ -33,11 +35,27 @@ export class Http  {
         });
     }
 
+    static putLikePost = (endPoint) =>{
+        return axios.post(BASE_URL + endPoint, {
+            headers: authHeader()
+        });
+    }
+
     static put = (endPoint, payload) =>{
         return axios.put(BASE_URL + endPoint, payload)
     }
 
-    static delete = (endPoint, id) =>{
-        return axios.put(BASE_URL + endPoint + '/' + id)
+    static patch = (endPoint, payload) =>{
+        return axios.patch(BASE_URL + endPoint, payload, {
+            headers: authHeader()
+        })
+    }
+
+    static delete = (endPoint) =>{
+        return axios.delete(BASE_URL + endPoint,{
+            headers: {
+                'content-type': 'multipart/form-data',
+            }
+        })
     }
 }
