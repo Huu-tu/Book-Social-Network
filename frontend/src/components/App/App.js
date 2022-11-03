@@ -23,11 +23,14 @@ import {useEffect, useState} from "react";
 import {getDataSocket} from "../../app/features/socket/socketSlice";
 import SocketioClient from "../../SocketioClient";
 import UserService from "../Header/Service/service";
+import PostService from "../../modules/Post/Service/service";
 import {getDataUser} from "../../app/features/profile/profileSlice";
+import {getDataPost} from "../../app/features/post/postSlice";
 
 function App() {
   const dispatch = useDispatch();
   const[user,setUser] = useState({});
+  const[data, setData] = useState([]);
 
   const getCurrentUser = async () =>{
     await UserService.getCurrentUser()
@@ -44,6 +47,23 @@ function App() {
   });
 
   dispatch(getDataUser(user))
+
+  const getValue = async ()=>{
+    await PostService.showPost()
+      .then((res) =>{
+        setData(res.data)
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+  }
+
+  useEffect(()=>{
+    getValue()
+  },[])
+
+  dispatch(getDataPost(data))
+
 
   useEffect(()=>{
     const socket = io("http://localhost:4000");

@@ -9,9 +9,13 @@ const SocketioClient = () => {
       socket?.emit('joinUser', user._id)
   },[socket,user._id])
 
-  // useEffect(() =>{
-  //
-  // },[])
+  useEffect(()=>{
+    console.log("thanh cong")
+    socket?.on('createNotifyToClient', msg =>{
+      console.log("Roi do")
+      console.log(msg)
+    })
+  },[socket])
 
   return(
     <></>

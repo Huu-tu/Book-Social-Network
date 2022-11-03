@@ -23,10 +23,18 @@ export default function ReactionPost({IdPost, IdAuthor, Description, IImage}){
       text:'Like the Post',
       url: `http://localhost:3000/detailPost/${Id_Post}`,
       recipient: Author,
-      image: Image
+      image: Image,
     }
 
-    await NotifyService.createNotify(newNotify)
+    const res = await NotifyService.createNotify(newNotify)
+
+    socket?.emit('createNotify',{
+      ...res.data.notify,
+      user:{
+        user: user.fullName,
+        avatar: Image,
+      }
+    })
   }
 
   const onSubmitDisLike = async (event)=>{
@@ -49,10 +57,10 @@ export default function ReactionPost({IdPost, IdAuthor, Description, IImage}){
   }
 
     const handleNotification = async (receiverName) =>{
-      socket.emit("sendNotification", {
-        senderName: user.fullName,
-        receiverName: receiverName
-      })
+      // socket.emit("sendNotification", {
+      //   senderName: user.fullName,
+      //   receiverName: receiverName
+      // })
     }
 
   return(

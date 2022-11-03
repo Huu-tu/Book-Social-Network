@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from "react";
-import PostService from "../../Post/Service/service";
 import CreatePost from "../Pages/createPost";
-import { useSelector } from "react-redux";
 import moment from 'moment'
+import {useSelector, useDispatch} from 'react-redux';
 
 export default function ListPost(){
-  const[data, setData] = useState([]);
   const user = useSelector((state) =>state.profile.value)
   const socket= useSelector((state) =>state.socket.value)
+  const posts = useSelector((state) =>state.post.value)
 
   const handleNotification = async (receiverName) =>{
     socket.emit("sendNotification", {
@@ -16,25 +15,11 @@ export default function ListPost(){
     })
   }
 
-  const getValue = async ()=>{
-    await PostService.showPost()
-      .then((res) =>{
-        setData(res.data)
-      })
-      .catch((err)=>{
-        console.log(err)
-      })
-  }
-
-  useEffect(()=>{
-    getValue()
-  },[])
-
   return(
     <div className="col-md-6 gedf-main">
       <CreatePost />
       {
-        data.map((item) =>(
+        posts.map((item) =>(
           <div className="card gedf-card">
             <div className="card-header">
               <div className="d-flex justify-content-between align-items-center">
@@ -69,12 +54,6 @@ export default function ListPost(){
               <a className="card-link" href={`/detailPost/${item._id}`}>
                 <h5 className="card-title">{item.description}.</h5>
               </a>
-              {/*<p className="card-text">*/}
-              {/*  {item.description}.*/}
-              {/*</p>*/}
-              {/*<div>*/}
-              {/*  <span className="badge badge-primary">{item.author}</span>*/}
-              {/*</div>*/}
             </div>
           </div>
         ))

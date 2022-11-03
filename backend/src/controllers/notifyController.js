@@ -19,7 +19,7 @@ class notifyController {
 
     const notify = await Notify.create(formData)
     if (notify){
-      return  res.status(200).json("Success");
+      return res.status(200).json({notify});
       // console.log(notify)
     }else {
       res.json("Failed")

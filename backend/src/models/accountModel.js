@@ -31,9 +31,18 @@ const AccountSchema  = new Schema({
         type: String,
         required: false,
     },
+    createAt: {
+         type: Date,
+         default: Date.now,
+    },
+    updateAt: {
+         type: Date,
+         default: Date.now,
+    },
 },
 {
     collection: 'accounts',
+    timestamp: true,
 });
 
 AccountSchema.pre('save', async function(next){

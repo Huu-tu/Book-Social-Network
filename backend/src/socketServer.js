@@ -11,8 +11,17 @@ const socketServer = (socket) => {
   })
 
   //like- unlike
-  socket.on('createNotify', ()=>{
+  socket.on('createNotify', msg=>{
+    let recipients = msg.recipient;
+    const clients = users.filter(user=>recipients.includes(user.id))
 
+    if(clients.length > 0){
+      clients.forEach(client=>{
+        console.log(client.socketId)
+        // socket.to(`${client.socketId}`).emit('createNotifyToClient', msg)
+        socket.emit('createNotifyToClient', msg)
+      })
+    }
   })
 
   socket.on('removeNotify', ()=>{

@@ -67,7 +67,7 @@ export default function Header(){
                 {/*</div>*/}
                 <a className="nav-link page-scroll" href="/notification">
                   <BsBell/>
-                  <span style={{position:"absolute", transform:"translate(-10px,18px)",color:'white', fontSize:'10px'}}>{notify && notify.length}</span>
+                  <span className="badge badge-secondary" style={{position:"absolute", transform:"translate(-10px,18px)",color:'white', fontSize:'10px'}}>{notify && notify.length}</span>
                 </a>
               </li>
               <li className="nav-item">

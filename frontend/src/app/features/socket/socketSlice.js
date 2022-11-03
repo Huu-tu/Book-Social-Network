@@ -13,4 +13,5 @@ export const socketSlice = createSlice({
 })
 
 export const { getDataSocket } = socketSlice.actions
-export default socketSlice.reducer;
+const socketReducer = socketSlice.reducer
+export default socketReducer;

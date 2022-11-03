@@ -13,4 +13,5 @@ export const profileSlice = createSlice({
 })
 
 export const { getDataUser } = profileSlice.actions
-export default profileSlice.reducer;
+const profileReducer = profileSlice.reducer;
+export default profileReducer;
