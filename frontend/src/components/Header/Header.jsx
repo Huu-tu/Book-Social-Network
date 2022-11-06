@@ -1,34 +1,17 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import UserService from "./Service/service";
 import { BsFillChatDotsFill, BsBell, BsPersonCircle, BsFillBookFill } from "react-icons/bs";
-import Chat from "../Chat/Components/Chat";
 import "./Styles/header.css"
-import { useSelector } from "react-redux";
 import NotifyService from "../Notification/Service/service";
+import {useSelector, useDispatch} from 'react-redux';
 
 export default function Header(){
-  const[data, setData] = useState({});
+  const profile = useSelector((state) =>state.profile.value)
   const [notify, setNotify] = useState([]);
-  const [open, setOpen] = useState(false);
 
   const handleLogOut = async () =>{
     localStorage.removeItem('token')
   }
-
-  const getValue = async ()=>{
-    await UserService.getCurrentUser()
-      .then((res) =>{
-        // console.log(res.data)
-        setData(res.data)
-      })
-      .catch((err)=>{
-        console.log(err)
-      })
-  }
-
-  useEffect(()=>{
-    getValue()
-  },[])
 
   const getNotify = async ()=>{
     await NotifyService.getNotify()
@@ -99,7 +82,7 @@ export default function Header(){
                   <BsPersonCircle />
                 </a>
                 <div className="dropdown-menu">
-                  <a className="dropdown-item" href="/profile">{data.fullName}</a>
+                  <a className="dropdown-item" href="/profile">{profile.fullName}</a>
                   <a className="dropdown-item" href="/discussion">Discussions</a>
                   <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="/" onClick={handleLogOut}>Log out</a>

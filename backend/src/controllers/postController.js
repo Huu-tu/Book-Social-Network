@@ -38,12 +38,14 @@ class postController{
   }
 
   async createPost(req,res){
+    let title = req.body.title;
     let authorId = req.body.authorId;
     let authorName = req.body.authorName;
     let description = req.body.description;
     let image = req.file.filename;
 
     const data = await Post.create({
+      title,
       authorId,
       description,
       authorName,

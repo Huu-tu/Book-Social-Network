@@ -1,0 +1,32 @@
+.chartAdmin{
+    width: 1350px;
+    height: 1800px;
+    background: rgb(158 158 158 / 30%);
+}
+
+.BarChart{
+    position: absolute;
+    margin-top: 100px;
+    width:1100px;
+    height: 400px;
+    margin-left: 8rem;
+    border-radius: 30px;
+}
+
+.LineChart{
+    position: absolute;
+    margin-top: 520px;
+    width:1100px;
+    height: 400px;
+    margin-left: 8rem;
+    border-radius: 30px;
+}
+
+.PieChart{
+    position: absolute;
+    margin-top: 920px;
+    width:1100px;
+    height: 400px;
+    margin-left: 8rem;
+    border-radius: 30px;
+}

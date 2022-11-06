@@ -3,13 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import jwt_decode from "jwt-decode";
 import "../../../styles/auth.css";
-import { authActions } from "../authSlice";
 import AccountService from "../Service/service";
 import { GoogleOAuthProvider, GoogleLogin  } from '@react-oauth/google';
 
 export default function Login(){
     let navigate  = useNavigate();
-    const disPatch = useDispatch();
 
     const[input, setInput] = useState({
         username: "",
@@ -53,18 +51,21 @@ export default function Login(){
             password: input.password,
         }
 
-        // disPatch(authActions.login({}));
-
         const value = await AccountService.login(formData);
 
-        // disPatch(authActions.loginSuccess())
-        // setCookie('token', JSON.stringify(value.data), 1)
         if (value.data === "Thap Bai"){
             console.log("Thap bai")
             navigate("/login")
         }else {
-            localStorage.setItem("token", JSON.stringify(value.data));
-            navigate("/main")
+            if (value.data.role === "admin"){
+                localStorage.setItem("token", JSON.stringify({"token":value.data.token}));
+                navigate("/admin")
+                window.location.reload();
+            }else {
+                localStorage.setItem("token", JSON.stringify({"token":value.data.token}));
+                navigate("/main")
+                window.location.reload();
+            }
         }
     }
 

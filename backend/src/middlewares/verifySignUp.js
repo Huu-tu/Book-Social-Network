@@ -3,16 +3,10 @@ const jwt = require('jsonwebtoken');
 
 class verifySignUp {
   checkPermission(req,res,next){
-    // const Authorization = req.headers.authorization;
-    // const token = Authorization.split(" ")[1];
-    //
-    // console.log(token)
     const role = req.user.role
     if (
-      role === 'staff' ||
       role === 'admin' ||
-      role === 'user' ||
-      role === 'coordinator'
+      role === 'user'
     ) {
       next();
     } else {

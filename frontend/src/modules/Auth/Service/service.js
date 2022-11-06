@@ -1,6 +1,7 @@
 import { Http } from "../../../api/http";
 
 const API_ENDPOINT = {
+    GETALLUSER: "/auth/getAllUser",
     LOGIN: "/auth/login",
     LOGINGG: "/auth/loginGG",
     REGISTER: "/auth/register",
@@ -11,6 +12,9 @@ const API_ENDPOINT = {
 }
 
 class AccountServices{
+    getAllUser(){
+        return Http.get(API_ENDPOINT.GETALLUSER)
+    }
     login(data){
         return Http.post(API_ENDPOINT.LOGIN, data)
     }

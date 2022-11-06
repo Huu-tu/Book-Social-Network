@@ -8,8 +8,7 @@ class accountController{
     async index(req,res){
       const data = await Account.find()
       if(data){
-        res.json(data)
-        console.log(data)
+        res.json({data})
       }else{
         console.log("Failed")
       }
@@ -41,12 +40,11 @@ class accountController{
             // phone: user.phone,
             // email: user.email,
             // gender: user.gender,
-            // role: user.role,
+            role: user.role,
             token: token
           })
       }else{
         return res.json('Thap Bai')
-        // console.log('thap bai')
       }
     }
 

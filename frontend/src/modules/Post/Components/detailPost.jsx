@@ -58,6 +58,11 @@ export default function DetailPost(){
                     <hr className="p-0 m-0" />
                   </div>
                   <div className="col-lg-12 pt-2">
+                    <h5>Title</h5>
+                    <span>{data.title}.</span>
+                    <hr className="m-0 pt-2 mt-2" />
+                  </div>
+                  <div className="col-lg-12 pt-2">
                     <h5>Description</h5>
                     <span>{data.description}.</span>
                     <hr className="m-0 pt-2 mt-2" />

@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
-import CreatePost from "../Pages/createPost";
+import React from "react";
+// import CreatePost from "../Pages/createPost";
 import moment from 'moment'
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 export default function ListPost(){
   const user = useSelector((state) =>state.profile.value)
@@ -17,7 +17,7 @@ export default function ListPost(){
 
   return(
     <div className="col-md-6 gedf-main">
-      <CreatePost />
+      {/*<CreatePost />*/}
       {
         posts.map((item) =>(
           <div className="card gedf-card">
@@ -50,9 +50,9 @@ export default function ListPost(){
 
             </div>
             <div className="card-body">
-              <div className="text-muted h7 mb-2"><i className="fa fa-clock-o"></i>{moment(item.createdAt).fromNow()}</div>
+              <div className="text-muted h7 mb-2"><i className="fa fa-clock-o"></i>{moment(item.createAt).fromNow()}</div>
               <a className="card-link" href={`/detailPost/${item._id}`}>
-                <h5 className="card-title">{item.description}.</h5>
+                <h5 className="card-title">{item.title}.</h5>
               </a>
             </div>
           </div>

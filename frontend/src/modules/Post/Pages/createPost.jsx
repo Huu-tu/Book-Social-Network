@@ -1,29 +1,25 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import "../../Post/Styles/post.css";
-import { BsFillTagFill, BsFillEmojiHeartEyesFill, BsPinMapFill, BsFillFileEarmarkImageFill} from "react-icons/bs";
 import PostService from "../Service/service";
+import "../Styles/createPost.css"
+import {useSelector} from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 export default function CreatePost(){
-  const description = useRef();
+  let navigate  = useNavigate();
   const [file, setFile] = useState(null);
-  const[data, setData] = useState({});
-
-  const getValue = async ()=>{
-    await PostService.getCurrentUser()
-      .then((res) =>{
-        // console.log(res.data)
-        setData(res.data)
-      })
-      .catch((err)=>{
-        console.log(err)
-      })
-  }
+  const[data, setData] = useState({
+    title: "",
+    description: "",
+  });
+  const user = useSelector((state) =>state.profile.value)
 
   useEffect(()=>{
-    getValue()
-  },[])
+    // console.log(user)
+  },[user])
 
   const handleChange = (event) =>{
+    setData({...data, [event.target.name]: event.target.value});
     setFile(event.target.files[0])
   }
 
@@ -32,75 +28,55 @@ export default function CreatePost(){
 
     //post
     const newPost = {
-      authorId: data._id,
-      authorName: data.fullName,
-      description: description.current.value,
+      title: data.title,
+      authorId: user._id,
+      authorName: user.fullName,
+      description: data.description,
       image: file
     }
 
     await PostService.createPost(newPost)
 
+    navigate('/main')
     window.location.reload();
   }
 
   return(
     <>
-      <div className="card gedf-card">
-        <div className="card-header">
-          <ul className="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-            <li className="nav-item">
-              <a className="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab"
-                 aria-controls="posts" aria-selected="true">Make a publication</a>
-            </li>
-          </ul>
-        </div>
-        <div className="card-body">
-          <div className="tab-content" id="myTabContent">
-            <div className="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-              <div className="form-group">
-                <input
-                  className="shareInput"
-                  id="message"
-                  placeholder={"What's in your mind " + data.fullName + "?"}
-                  ref={description}
-                />
-              </div>
-            </div>
+      <div className="formMain">
+        {/*<Header />*/}
+        <div className="container contact-form" style={{ marginTop: "70px" }}>
+          <div className="contact-image" >
+            <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
           </div>
-
-          <form className="shareBottom" onSubmit={submitHandler}>
-            <div className="shareOptions">
-              <div className="shareOption">
-                <BsFillTagFill className="shareIcon"/>
-                <span className="shareOptionText">Tag</span>
+          <form  onSubmit={submitHandler}>
+            <h3>Drop Us a Message</h3>
+            <div className="row">
+              <div className="col-md-6">
+                <div className="form-group">
+                  <input type="text" name="title" className="form-control" placeholder="Title *" onChange={handleChange} value={data.title}/>
+                </div>
+                <div className="form-group">
+                  <input id="image" type="file" name="image" className="form-control" accept=".png,.jpeg,.jpg" onChange={handleChange}/>
+                </div>
+                {/*<div className="form-group">*/}
+                {/*  <input type="text" name="txtPhone" className="form-control" placeholder="Your Phone Number *" value=""/>*/}
+                {/*</div>*/}
+                <div className="form-group">
+                  <input type="submit" name="btnSubmit" className="btnContact" value="Send Message"/>
+                </div>
               </div>
-              <div className="shareOption">
-                <BsPinMapFill className="shareIcon"/>
-                <span className="shareOptionText">Location</span>
+              <div className="col-md-6">
+                <div className="form-group">
+                <textarea  id="description" name="description" className="form-control" placeholder="Content *" onChange={handleChange} value={data.description}
+                          style={{width: "100%", height: "150px"}}></textarea>
+                </div>
               </div>
-              <div className="shareOption">
-                <BsFillEmojiHeartEyesFill className="shareIcon"/>
-                <span className="shareOptionText">Feelings</span>
-              </div>
-              <label htmlFor="image" className="shareOption">
-                <BsFillFileEarmarkImageFill className="shareIcon"/>
-                <span className="shareOptionText">Image</span>
-                <input
-                  style={{ display: "none" }}
-                  type="file"
-                  id="image"
-                  name="image"
-                  accept=".png,.jpeg,.jpg"
-                  onChange={handleChange}
-                />
-              </label>
             </div>
-            <button className="shareButton" type="submit">
-              Share
-            </button>
           </form>
         </div>
       </div>
+
     </>
   )
 }

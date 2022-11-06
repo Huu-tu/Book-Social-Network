@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 const PostSchema = new Schema(
   {
+    title: {
+      type: String,
+      required: true,
+    },
     authorId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,

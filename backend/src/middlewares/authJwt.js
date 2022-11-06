@@ -5,9 +5,6 @@ const KEY = process.env.key;
 class AuthJwt{
   checkLogin(req,res,next){
     const Authorization = req.headers.authorization;
-    // const accessToken = Authorization.split("Bearer ")[1];
-
-    // console.log(accessToken)
 
     if (Authorization.startsWith("Bearer ")){
       const token = Authorization.substring(17, Authorization.length);

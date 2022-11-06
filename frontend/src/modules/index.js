@@ -6,7 +6,7 @@ import Group from "./Community/Components/group";
 import PopularQuotes from "./Community/Components/popularQuotes";
 import Explore from "./Explore/Components/explore";
 import News from "./News/Components/news";
-import Admin from "./Admin/Components/admin";
+import Admin from "./Admin/admin";
 import User from "./User/Components/user";
 
 
