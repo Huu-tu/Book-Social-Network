@@ -35,7 +35,6 @@ export default function Header(){
        UserService.searchUser(search)
         .then((res)=>{
           setUsers(res.data.users)
-          // setSearch("")
         })
         .catch((err)=>{
           console.log("Khong search")
@@ -53,18 +52,17 @@ export default function Header(){
           {/* Image Logo */}
           <a className="navbar-brand logo-text page-scroll" href="/main">Tivo</a>
           <form className="header-center input-group" >
-            <div className="form-outline" >
+            <div className="form-outline" style={{paddingTop: "3px"}}>
               <input type="text" id="form1" className="form-control" placeholder="Search Profiles" value={search} onChange={(e)=> setSearch(e.target.value)}/>
             </div>
-            <div className="btn btn-primary" >
+            <div className="btn btn-primary" style={{marginBottom: "25px"}}>
               <BsSearch />
             </div>
-            <div className="header-searchusers" style={{marginTop: "40px"}}>
+            <div className="header-searchusers" style={{marginTop: "45px"}}>
               {
                 search && users.length > 0 && users.map((item)=>(
                   <a className="card-link" href={`/profile/${item._id}`} key={item._id}>
-                    {/*<UserCard user={item.fullName}/>*/}
-                    <h5 className="card-title">{item.fullName}.</h5>
+                    <h5 className="card-title">{item.fullName}</h5>
                   </a>
                 ))
               }
