@@ -34,8 +34,7 @@ export default function Header(){
     if (search){
        UserService.searchUser(search)
         .then((res)=>{
-          setUsers(res.data)
-          console.log(res.data)
+          setUsers(res.data.users)
           // setSearch("")
         })
         .catch((err)=>{
@@ -53,33 +52,23 @@ export default function Header(){
         <div className="container">
           {/* Image Logo */}
           <a className="navbar-brand logo-text page-scroll" href="/main">Tivo</a>
-          <form className="header-center input-group" style={{marginLeft: "800px"}}>
+          <form className="header-center input-group" >
             <div className="form-outline" >
               <input type="text" id="form1" className="form-control" placeholder="Search Profiles" value={search} onChange={(e)=> setSearch(e.target.value)}/>
             </div>
             <div className="btn btn-primary" >
               <BsSearch />
             </div>
-            <div className="header-searchusers">
+            <div className="header-searchusers" style={{marginTop: "40px"}}>
               {
-                users.length > 0 && users.map((item)=>(
-                  <p>{item.fullName}</p>
-                  // <a href={`/profile/${item._id}`}>
-                  //   {/*<UserCard user={item.fullName}/>*/}
-                  //   {item.fullName}
-                  // </a>
+                search && users.length > 0 && users.map((item)=>(
+                  <a className="card-link" href={`/profile/${item._id}`} key={item._id}>
+                    {/*<UserCard user={item.fullName}/>*/}
+                    <h5 className="card-title">{item.fullName}.</h5>
+                  </a>
                 ))
               }
             </div>
-            {/*<div className="header-searchusers">*/}
-            {/*  {*/}
-            {/*    users.length > 0 && users.map((item)=>(*/}
-            {/*      <a href={`/profile/${item._id}`}>*/}
-            {/*        <UserCard user={item.fullName}/>*/}
-            {/*      </a>*/}
-            {/*    ))*/}
-            {/*  }*/}
-            {/*</div>*/}
           </form>
 
           <div className="collapse navbar-collapse" id="navbarsExampleDefault">
