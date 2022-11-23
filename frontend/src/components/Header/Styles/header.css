@@ -36,3 +36,18 @@
     padding: 5px;
     margin-top: 10px;
 }
+
+.header-center{
+    width: 100%;
+    background-color: #5f4dee;
+    border-radius: 5px;
+    flex:0.8;
+    position: relative;
+}
+
+.header-searchusers {
+    margin-top: 5px;
+    position: absolute;
+    width:100%;
+    background: #4e4ac8;
+}

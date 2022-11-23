@@ -1,13 +1,16 @@
 import React, { useEffect, useState} from "react";
 import UserService from "./Service/service";
-import { BsFillChatDotsFill, BsBell, BsPersonCircle, BsFillBookFill } from "react-icons/bs";
+import { BsFillChatDotsFill, BsBell, BsPersonCircle, BsFillBookFill, BsSearch } from "react-icons/bs";
 import "./Styles/header.css"
 import NotifyService from "../Notification/Service/service";
 import {useSelector, useDispatch} from 'react-redux';
+import UserCard from "./Pages/UserCard";
 
 export default function Header(){
   const profile = useSelector((state) =>state.profile.value)
   const [notify, setNotify] = useState([]);
+  const [search, setSearch] = useState('');
+  const [users,setUsers]=useState([])
 
   const handleLogOut = async () =>{
     localStorage.removeItem('token')
@@ -26,6 +29,23 @@ export default function Header(){
   useEffect(()=>{
     getNotify()
   },[])
+
+  useEffect(()=>{
+    if (search){
+       UserService.searchUser(search)
+        .then((res)=>{
+          setUsers(res.data)
+          console.log(res.data)
+          // setSearch("")
+        })
+        .catch((err)=>{
+          console.log("Khong search")
+        })
+    }else {
+      console.log("Khong co")
+    }
+  },[search])
+
   return(
     <>
       {/* Navigation  */}
@@ -33,6 +53,34 @@ export default function Header(){
         <div className="container">
           {/* Image Logo */}
           <a className="navbar-brand logo-text page-scroll" href="/main">Tivo</a>
+          <form className="header-center input-group" style={{marginLeft: "800px"}}>
+            <div className="form-outline" >
+              <input type="text" id="form1" className="form-control" placeholder="Search Profiles" value={search} onChange={(e)=> setSearch(e.target.value)}/>
+            </div>
+            <div className="btn btn-primary" >
+              <BsSearch />
+            </div>
+            <div className="header-searchusers">
+              {
+                users.length > 0 && users.map((item)=>(
+                  <p>{item.fullName}</p>
+                  // <a href={`/profile/${item._id}`}>
+                  //   {/*<UserCard user={item.fullName}/>*/}
+                  //   {item.fullName}
+                  // </a>
+                ))
+              }
+            </div>
+            {/*<div className="header-searchusers">*/}
+            {/*  {*/}
+            {/*    users.length > 0 && users.map((item)=>(*/}
+            {/*      <a href={`/profile/${item._id}`}>*/}
+            {/*        <UserCard user={item.fullName}/>*/}
+            {/*      </a>*/}
+            {/*    ))*/}
+            {/*  }*/}
+            {/*</div>*/}
+          </form>
 
           <div className="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul className="navbar-nav ml-auto">
@@ -82,7 +130,7 @@ export default function Header(){
                   <BsPersonCircle />
                 </a>
                 <div className="dropdown-menu">
-                  <a className="dropdown-item" href={`/profileAdmin/${profile._id}`}>{profile.fullName}</a>
+                  <a className="dropdown-item" href={`/profile/${profile._id}`}>{profile.fullName}</a>
                   <a className="dropdown-item" href="/discussion">Discussions</a>
                   <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="/" onClick={handleLogOut}>Log out</a>
