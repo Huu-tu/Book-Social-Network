@@ -82,9 +82,7 @@
     align-items: center;
 }
 .profileinfo-stat{
-
     padding:5px;
-
 }
 .profileinfo-statnumber{
     font-size:large;
@@ -122,4 +120,8 @@
 
 .profileinfo-bottomright{
     flex:0.33;
+}
+
+.profileinfo-statRight{
+    margin-left: 220px;
 }

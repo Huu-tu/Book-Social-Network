@@ -4,7 +4,6 @@ import { BsFillChatDotsFill, BsBell, BsPersonCircle, BsFillBookFill, BsSearch } 
 import "./Styles/header.css"
 import NotifyService from "../Notification/Service/service";
 import {useSelector, useDispatch} from 'react-redux';
-import UserCard from "./Pages/UserCard";
 
 export default function Header(){
   const profile = useSelector((state) =>state.profile.value)

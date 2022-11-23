@@ -9,8 +9,6 @@ class siteController {
   currentUser(req, res){
      let userId = req.user._id;
 
-     // console.log(userId)
-
     Account.findOne({_id: userId})
       .then((data) =>{
         res.json(data)
@@ -43,7 +41,7 @@ class siteController {
   }
 
   async editProfile(req,res){
-     let _id = req.body._id
+     let _id = req.body._id;
      let fullName = req.body.fullName;
      let phone = req.body.phone;
      let email = req.body.email;
@@ -53,8 +51,7 @@ class siteController {
       const user = await Account.findOneAndUpdate({_id: _id},{
         fullName, phone, email, gender
       })
-
-      console.log(user)
+      res.json({user})
     }else {
       console.log("Ko")
     }

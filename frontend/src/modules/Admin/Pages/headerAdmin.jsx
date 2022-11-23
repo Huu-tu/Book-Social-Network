@@ -1,12 +1,15 @@
 import React, { useEffect, useState} from "react";
-import { BsFillChatDotsFill, BsBell, BsPersonCircle, BsClipboardData, BsFillBarChartLineFill, BsCardChecklist } from "react-icons/bs";
+import { BsFillChatDotsFill, BsSearch,BsBell, BsPersonCircle, BsClipboardData, BsFillBarChartLineFill, BsCardChecklist } from "react-icons/bs";
 import "../Styles/HeaderAdmin.css"
 import {useSelector} from 'react-redux';
 import NotifyService from "../../../components/Notification/Service/service";
+import UserService from "../../../components/Header/Service/service";
 
 export default function HeaderAdmin(){
   const profile = useSelector((state) =>state.profile.value);
   const [notify, setNotify] = useState([]);
+  const [search, setSearch] = useState('');
+  const [users,setUsers]=useState([])
 
   const handleLogOut = async () =>{
     localStorage.removeItem('token')
@@ -26,6 +29,20 @@ export default function HeaderAdmin(){
     getNotify()
   },[])
 
+  useEffect(()=>{
+    if (search){
+      UserService.searchUser(search)
+        .then((res)=>{
+          setUsers(res.data.users)
+        })
+        .catch((err)=>{
+          console.log("Khong search")
+        })
+    }else {
+      console.log("Khong co")
+    }
+  },[search])
+
   return(
     <>
       {/* Navigation  */}
@@ -33,6 +50,23 @@ export default function HeaderAdmin(){
         <div className="container">
           {/* Image Logo */}
           <a className="navbar-brand logo-text page-scroll" href="/main">Tivo</a>
+          <form className="header-center input-group" >
+            <div className="form-outline" style={{paddingTop: "3px"}}>
+              <input type="text" id="form1" className="form-control" placeholder="Search Profiles" value={search} onChange={(e)=> setSearch(e.target.value)}/>
+            </div>
+            <div className="btn btn-primary" style={{marginBottom: "25px"}}>
+              <BsSearch />
+            </div>
+            <div className="header-searchusers" style={{marginTop: "45px"}}>
+              {
+                search && users.length > 0 && users.map((item)=>(
+                  <a className="card-link" href={`/profile/${item._id}`} key={item._id}>
+                    <h5 className="card-title">{item.fullName}</h5>
+                  </a>
+                ))
+              }
+            </div>
+          </form>
 
           <div className="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul className="navbar-nav ml-auto">

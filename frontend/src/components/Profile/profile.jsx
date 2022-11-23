@@ -34,7 +34,7 @@ export default function Profile(){
       {
         user._id === profile._id ?
           <div className="profile" style={{ marginTop: "70px" }}>
-            <Info posts={posts} user={user} profile={profile} />
+            <Info user={user} profile={profile} />
             <div className="profilebody">
               <div className="profilebody-left">
                 <About profile={profile} />
@@ -45,7 +45,7 @@ export default function Profile(){
             </div>
           </div>
           :  <div className="profile" style={{ marginTop: "70px" }}>
-            <Info posts={posts} user={user} profile={user} />
+            <Info user={user} profile={profile} />
             <div className="profilebody">
               <div className="profilebody-left">
                 <About profile={user} />
