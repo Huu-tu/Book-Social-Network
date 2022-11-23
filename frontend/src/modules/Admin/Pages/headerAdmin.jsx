@@ -26,10 +26,6 @@ export default function HeaderAdmin(){
     getNotify()
   },[])
 
-  useEffect(()=>{
-
-  })
-
   return(
     <>
       {/* Navigation  */}
@@ -66,7 +62,7 @@ export default function HeaderAdmin(){
                   <BsPersonCircle />
                 </a>
                 <div className="dropdown-menu">
-                  <a className="dropdown-item" href={`/profile/${profile._id}`}>{profile.fullName}</a>
+                  <a className="dropdown-item" href={`/profileAdmin/${profile._id}`}>{profile.fullName}</a>
                   <a className="dropdown-item" href="/discussion">Discussions</a>
                   <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="/" onClick={handleLogOut}>Log out</a>

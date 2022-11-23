@@ -1,6 +1,7 @@
 import {Http} from "../../../api/http";
 
 const API_ENDPOINT = {
+  GETSINGLEPOST: "/post/getSinglePost",
   SHOWPOST: "/post/showPost",
   DETAILPOST: "/post/detailPost",
   GETAUTHOR: "/post/getAuthor",
@@ -30,6 +31,10 @@ class PostServices{
 
   createPost(data){
     return Http.createPost(API_ENDPOINT.CREATEPOST, data)
+  }
+
+  getSinglePost(id){
+    return Http.get(API_ENDPOINT.GETSINGLEPOST + `/${id}`)
   }
 
   getImg(img){

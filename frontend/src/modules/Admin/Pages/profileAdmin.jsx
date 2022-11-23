@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
-import { GrNotification } from 'react-icons/gr';
 import "../Styles/ProfileAdmin.css"
 import {useParams} from "react-router-dom";
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import HeaderAdmin from "./headerAdmin";
 import Info from "../../../components/Profile/Pages/Info";
 import About from "../../../components/Profile/Pages/About";
@@ -42,7 +41,7 @@ export default function ProfileAdmin(){
                 <About profile={profile} />
               </div>
               <div className="profilebody-center">
-                <SingleUserPosts user={profile}/>
+                <SingleUserPosts id={id}/>
               </div>
             </div>
           </div>
@@ -53,12 +52,20 @@ export default function ProfileAdmin(){
                 <About profile={user} />
               </div>
               <div className="profilebody-center">
-                <SingleUserPosts user={user}/>
+                <div className="posts card">
+                  <div className="card-header">
+                    No Post Here
+                  </div>
+                  <div className="card-body">
+                    <h5 className="card-title">Special title treatment</h5>
+                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
       }
-
     </>
   )
 }
