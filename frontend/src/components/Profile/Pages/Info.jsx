@@ -3,7 +3,6 @@ import "../Styles/ProfileInfo.css";
 import GlobalFriendBtn from "./GlobalFriendBtn";
 
 export default function Info({ user, profile}){
-
   return(
     <>
       {
