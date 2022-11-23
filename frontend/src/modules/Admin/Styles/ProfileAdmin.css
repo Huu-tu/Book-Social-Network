@@ -1,0 +1,42 @@
+.profile{
+    display: inline-block;
+    /*display: flex;*/
+    /*text-align:center;*/
+    background: rgb(158 158 158 / 30%);
+    width: 1350px;
+    max-height: 100%;
+}
+
+.profilebody{
+    display: flex;
+    justify-content: space-between;
+    max-width:100%;
+    margin-top: 10px;
+}
+
+.profileheader{
+    height: fit-content;
+    width:1000px;
+    max-width:100%;
+    margin: 1rem auto;
+    border-radius: 20px;
+    background-color: white;
+}
+.profileheader-items{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.profileheader-items .MuiSvgIcon-root{
+    color:#615dfa;
+}
+.profilebody-left{
+    flex:0.1;
+}
+.profilebody-center{
+    flex:0.6;
+}
+.profilebody-right{
+    flex:0.1;
+}
