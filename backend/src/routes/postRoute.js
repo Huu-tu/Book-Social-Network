@@ -6,6 +6,7 @@ const VerifySignUp = require('../middlewares/verifySignUp');
 const ImgUpload = require('../middlewares/fileUpload');
 
 router.get('/showPost', [AuthJwt.checkLogin, VerifySignUp.checkPermission],PostController.showPost);
+router.get('/getSinglePost/:id', [AuthJwt.checkLogin, VerifySignUp.checkPermission],PostController.getSinglePost);
 router.post('/createPost', ImgUpload.single('image'), PostController.createPost);
 router.get('/getAuthor/:id', PostController.getAuthor);
 router.get('/detailPost/:id', PostController.detailPost);

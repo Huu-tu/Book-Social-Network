@@ -37,6 +37,18 @@ class postController{
       });
   }
 
+  async getSinglePost(req,res){
+    let _id = req.params.id
+
+    await Post.find({authorId: { $in: `${_id}`}})
+      .then((data)=>{
+        res.json(data)
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+  }
+
   async createPost(req,res){
     let title = req.body.title;
     let authorId = req.body.authorId;

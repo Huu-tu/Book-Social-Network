@@ -1,10 +1,8 @@
 const Account = require('../models/accountModel');
-const Post = require('../models/postModel');
 
 class siteController {
     //[GET] /
    index(req, res){
-    const result = 'hfsfello'
     res.send(result)
   }
 
@@ -21,6 +19,45 @@ class siteController {
       .catch((err) =>{
         res.json("Failed")
       });
+  }
+
+  async searchUser(req,res){
+    try {
+      const users = await Account.find({fullName: {$regex: req.query.fullName}}).limit(10)
+        .select("fullName")
+
+      res.json({users})
+    } catch (err) {
+      return res.status(500).json({msg: err.message})
+    }
+  }
+
+  async detailProfile(req,res){
+    Account.findOne({_id: req.params.id})
+      .then((data) =>{
+        res.json(data)
+      })
+      .catch((err) =>{
+        res.json("Failed")
+      });
+  }
+
+  async editProfile(req,res){
+     let _id = req.body._id
+     let fullName = req.body.fullName;
+     let phone = req.body.phone;
+     let email = req.body.email;
+     let gender = req.body.gender;
+
+    if (_id){
+      const user = await Account.findOneAndUpdate({_id: _id},{
+        fullName, phone, email, gender
+      })
+
+      console.log(user)
+    }else {
+      console.log("Ko")
+    }
   }
 }
 
