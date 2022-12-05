@@ -69,7 +69,6 @@ function App() {
 
   dispatch(getDataPost(data))
 
-
   useEffect(()=>{
     const socket = io("http://localhost:4000");
     dispatch(getDataSocket(socket))

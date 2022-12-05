@@ -47,7 +47,10 @@ export default function ManagePosts(){
                     <td>{moment(item.createAt).fromNow()}</td>
                     <td>
                       <button type="button" className="btn btn-link btn-sm btn-rounded">
-                        Edit
+                        Delete
+                      </button>
+                      <button type="button" className="btn btn-link btn-sm btn-rounded">
+                        Access
                       </button>
                     </td>
                   </tr>

@@ -92,7 +92,7 @@ export default function Register(){
             phone: input.phone,
             email: input.email,
             gender: input.gender,
-            role: input.role
+            role: "user"
         }
 
         // console.log(formData)
@@ -150,9 +150,6 @@ export default function Register(){
                                 <div className="row px-3"> <label className="mb-0">
                                     <h6 className="mb-0 text-sm">Gender</h6>
                                     </label> <input type="text" name="gender"  onChange={handleChange} value={input.gender}/> <p>{error.gender}</p> </div>
-                                <div className="row px-3"> <label className="mb-0">
-                                    <h6 className="mb-0 text-sm">Role</h6>
-                                </label> <input type="text" name="role"  onChange={handleChange} value={input.role}/></div>
                                 <div className="row mb-4">
                                     <div className="col-md-6"> <button className="btn btn-blue text-center mb-1 py-2">Create Account</button> </div>
                                 </div>

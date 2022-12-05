@@ -25,8 +25,8 @@ class NotifyServices{
     return Http.patch(API_ENDPOINT.ISREADNOTIFY + `/${id}`)
   }
 
-  deleteAllNotifies(){
-    return Http.delete(API_ENDPOINT.DELETEALLNOTIFY)
+  deleteAllNotifies(id){
+    return Http.delete(API_ENDPOINT.DELETEALLNOTIFY + `/${id}`)
   }
 }
 

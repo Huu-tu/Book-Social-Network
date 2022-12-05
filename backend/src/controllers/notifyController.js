@@ -20,7 +20,6 @@ class notifyController {
     const notify = await Notify.create(formData)
     if (notify){
       return res.status(200).json({notify});
-      // console.log(notify)
     }else {
       res.json("Failed")
     }
@@ -53,11 +52,14 @@ class notifyController {
   }
 
   async deleteAllNotifies(req,res){
-    const notifies = await Notify.deleteMany({
-      recipients: req.params._id
-    })
+    const UserId = req.params.id
+    if (UserId){
+      const notifies = await Notify.deleteMany({
+        recipient: UserId
+      })
 
-    res.json(notifies)
+      res.json(notifies)
+    }
   }
 }
 

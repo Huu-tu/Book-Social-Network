@@ -17,9 +17,8 @@ const socketServer = (socket) => {
 
     if(clients.length > 0){
       clients.forEach(client=>{
-        console.log(client.socketId)
-        // socket.to(`${client.socketId}`).emit('createNotifyToClient', msg)
-        socket.emit('createNotifyToClient', msg)
+        socket.to(`${client.socketId}`).emit('createNotifyToClient', msg)
+        // socket.emit('createNotifyToClient', msg)
       })
     }
   })

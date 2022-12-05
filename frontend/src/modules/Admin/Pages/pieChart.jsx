@@ -32,7 +32,7 @@ export default function PieChart(){
       datasets: [
         {
           label: "Xanh",
-          data: [12, 55, 34, 120, 720],
+          data: [10, 30, 40, 20, 70],
           borderColor: "rgb(53, 162, 235)",
           backgroundColor: [
             "rgba(53, 162, 235, 0.4)",
@@ -59,7 +59,7 @@ export default function PieChart(){
         },
         title: {
           display: true,
-          text: "Whom'st let the dogs out",
+          // text: "Whom'st let the dogs out",
         },
       },
     });

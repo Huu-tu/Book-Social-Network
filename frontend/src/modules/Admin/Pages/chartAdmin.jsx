@@ -21,7 +21,7 @@ export default function ChartAdmin(){
         </div>
         <div className="card LineChart">
           <div className="card-header">
-            LineChart
+            CommentChart
           </div>
           <div className="card-body">
             <CmtBarChart />
@@ -30,7 +30,7 @@ export default function ChartAdmin(){
         <div className="row PieChart">
           <div className="col-sm-6">
             <div className="card">
-              <div className="card-header">PieChart</div>
+              <div className="card-header">Most commented users</div>
               <div className="card-body">
                 <PieChart />
               </div>
@@ -38,7 +38,7 @@ export default function ChartAdmin(){
           </div>
           <div className="col-sm-6">
             <div className="card">
-              <div className="card-header">PieChart</div>
+              <div className="card-header">Most reacted users</div>
               <div className="card-body">
                 <PieChart />
               </div>

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import "../../components/Notification/Styles/notification.css"
 import Header from "../Header/Header";
 import moment from 'moment'
@@ -7,6 +7,7 @@ import NotifyService from "../Notification/Service/service";
 
 export default function Notification(){
   const [notify, setNotify] = useState([]);
+  const user = useSelector((state) =>state.profile.value)
 
   const getNotify = async ()=>{
     await NotifyService.getNotify()
@@ -21,6 +22,15 @@ export default function Notification(){
   useEffect(()=>{
     getNotify()
   },[])
+
+  const deleteAllNotify = async ()=>{
+    if (user){
+      const id = user._id
+      await NotifyService.deleteAllNotifies(id)
+    }else {
+      console.log("Khong")
+    }
+  }
 
   return(
     <>
@@ -45,7 +55,11 @@ export default function Notification(){
         <div className="notify mt-5 p-2" style={{ marginTop:"0px",marginBottom:"0px"}}>
           <div className="media-body">
             <h2 className="notifyH2 mt-2 mb-0">Notification</h2>
-            <small className="notifyText">Delete All</small>
+            {/*<form onSubmit={deleteAllNotify()}>*/}
+              <button type="button" className="notifyText btn" onClick={deleteAllNotify}>
+                Delete All
+              </button>
+            {/*</form>*/}
           </div>
         </div>
       </div>
