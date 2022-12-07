@@ -31,6 +31,7 @@ export default function CreatePost(){
       title: data.title,
       authorId: user._id,
       authorName: user.fullName,
+      avatar: user.image,
       description: data.description,
       image: file
     }

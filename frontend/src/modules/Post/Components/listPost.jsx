@@ -1,8 +1,6 @@
 import React from "react";
-// import CreatePost from "../Pages/createPost";
 import moment from 'moment'
 import {useSelector} from 'react-redux';
-import CreatePost from "../Pages/createPost";
 
 export default function ListPost(){
   const user = useSelector((state) =>state.profile.value)
@@ -18,7 +16,6 @@ export default function ListPost(){
 
   return(
     <div className="col-md-6 gedf-main">
-      {/*<CreatePost />*/}
       <button type="button" className="btn btn-outline-info"><a href={"/createPost"}>Create Post</a></button>
       {
         posts.map((item) =>(
@@ -26,12 +23,18 @@ export default function ListPost(){
             <div className="card-header">
               <div className="d-flex justify-content-between align-items-center">
                 <div className="d-flex justify-content-between align-items-center">
-                  <div className="mr-2">
-                    <img className="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="" />
-                  </div>
+                  {
+                    item.avatar
+                      ? <div className="mr-2">
+                        <img className="rounded-circle" width="45" height="45" src={`http://localhost:4000/img/` + `${item.avatar}`} alt="" />
+                      </div>
+                    : <div className="mr-2">
+                        <img className="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="" />
+                      </div>
+                  }
+
                   <div className="ml-2">
                     <div className="h5 m-0">{item.authorName}</div>
-                    {/*<div className="h7 m-0">Trending this week in one of your favorite genres, Business</div>*/}
                   </div>
                 </div>
                 <div>

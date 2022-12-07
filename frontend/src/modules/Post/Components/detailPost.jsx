@@ -29,8 +29,6 @@ export default function DetailPost(){
       })
   }
 
-  // console.log(data.comments)
-
   useEffect(()=>{
     getValue()
   },[data])

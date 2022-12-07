@@ -15,9 +15,6 @@ class postController{
   }
 
   async showPost(req,res){
-    // const Authorization = req.headers["authorization"];
-    // const token = Authorization.split(" ")[1];
-    // console.log(token)
     const data = await Post.find()
     if(data){
       res.json(data)
@@ -53,6 +50,7 @@ class postController{
     let title = req.body.title;
     let authorId = req.body.authorId;
     let authorName = req.body.authorName;
+    let avatar = req.body.avatar;
     let description = req.body.description;
     let image = req.file.filename;
 
@@ -61,6 +59,7 @@ class postController{
       authorId,
       description,
       authorName,
+      avatar,
       image
     })
 
