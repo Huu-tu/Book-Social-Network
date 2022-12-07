@@ -5,6 +5,7 @@ import AccountService from "../Service/service";
 
 export default function Register(){
     let navigate  = useNavigate();
+    const [file, setFile] = useState(null);
     const[input, setInput] = useState({
         username: "",
         password: "",
@@ -75,9 +76,8 @@ export default function Register(){
     };
 
     const handleChange = (event) =>{
-        event.preventDefault();
-
         setInput({...input,[event.target.name]: event.target.value });
+        setFile(event.target.files[0])
 
         setError(validated(input));
     }
@@ -92,10 +92,10 @@ export default function Register(){
             phone: input.phone,
             email: input.email,
             gender: input.gender,
+            image: file,
             role: "user"
         }
 
-        // console.log(formData)
         AccountService.register(formData)
 
         navigate("/")
@@ -147,7 +147,9 @@ export default function Register(){
                                 <div className="row px-3"> <label className="mb-0">
                                     <h6 className="mb-0 text-sm">Email</h6>
                                     </label> <input type="text" name="email" placeholder="john.doe@email.com" onChange={handleChange} value={input.email}/> <p>{error.email}</p> </div>
-
+                                <div className="row px-3"> <label className="mb-0">
+                                    <h6 className="mb-0 text-sm">Avatar</h6>
+                                </label> <input id="image" type="file" name="image" accept=".png,.jpeg,.jpg" onChange={handleChange} />  </div>
                                 <div className="row px-3"> <label className="mb-0">
                                     <h6 className="mb-0 text-sm">Gender</h6>
                                     </label> <input type="text" name="gender" placeholder="male"  onChange={handleChange} value={input.gender}/> <p>{error.gender}</p> </div>

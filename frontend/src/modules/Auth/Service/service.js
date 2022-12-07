@@ -22,7 +22,7 @@ class AccountServices{
         return Http.post(API_ENDPOINT.LOGINGG, data)
     }
     register(data){
-        return Http.post(API_ENDPOINT.REGISTER, data)
+        return Http.register(API_ENDPOINT.REGISTER, data)
     }
     logOut(){
         return Http.post(API_ENDPOINT.LOGOUT)

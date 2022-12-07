@@ -31,7 +31,7 @@ const AccountSchema  = new Schema({
         type: String,
         required: false,
     },
-    avatar: {
+    image: {
         type: String,
         required: false,
         data: Buffer,

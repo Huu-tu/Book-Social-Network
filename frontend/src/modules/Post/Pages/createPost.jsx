@@ -60,11 +60,8 @@ export default function CreatePost(){
                 <div className="form-group">
                   <input id="image" type="file" name="image" className="form-control" accept=".png,.jpeg,.jpg" onChange={handleChange}/>
                 </div>
-                {/*<div className="form-group">*/}
-                {/*  <input type="text" name="txtPhone" className="form-control" placeholder="Your Phone Number *" value=""/>*/}
-                {/*</div>*/}
                 <div className="form-group">
-                  <input type="submit" name="btnSubmit" className="btnContact" value="Send Message"/>
+                  <input type="submit" name="btnSubmit" className="btnContact" value="Create Post"/>
                 </div>
               </div>
               <div className="col-md-6">

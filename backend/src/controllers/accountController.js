@@ -69,7 +69,6 @@ class accountController{
         })
       }
 
-      // console.log(username,password)
     }
 
     async register(req,res){
@@ -79,6 +78,7 @@ class accountController{
       let phone = req.body.phone;
       let email = req.body.email;
       let gender = req.body.gender;
+      let image = req.file.filename;
       let role = req.body.role;
 
       let data = await Account.findOne({username})
@@ -92,6 +92,7 @@ class accountController{
           phone: phone,
           email: email,
           gender: gender,
+          image: image,
           role: role
         })
         res.json("Thanh cong")

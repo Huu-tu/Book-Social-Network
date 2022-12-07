@@ -9,15 +9,17 @@ export class Http  {
         });
     }
 
-    static getUser = (endPoint) =>{
-        return axios.get(BASE_URL + endPoint, {
-            headers: authHeader()
-        });
+    static register = (endPoint, payload) =>{
+        return axios.post(BASE_URL + endPoint, payload,{
+            headers: {
+                'content-type': 'multipart/form-data',
+            }
+        })
     }
 
     static post = (endPoint, payload) =>{
         return axios.post(BASE_URL + endPoint, payload,{
-            headers: authHeader()
+            headers: authHeader(),
         })
     }
 
