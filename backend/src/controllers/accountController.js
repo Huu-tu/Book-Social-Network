@@ -44,7 +44,7 @@ class accountController{
             token: token
           })
       }else{
-        return res.json('Thap Bai')
+        res.json('Thap Bai')
       }
     }
 

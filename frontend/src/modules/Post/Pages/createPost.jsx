@@ -46,11 +46,12 @@ export default function CreatePost(){
       <div className="formMain">
         {/*<Header />*/}
         <div className="container contact-form" style={{ marginTop: "70px" }}>
+          <button type="button" className="btn btn-primary" style={{marginTop: "10px"}} onClick={() => { navigate(-1) }}>Go Back</button>
           <div className="contact-image" >
             <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
           </div>
           <form  onSubmit={submitHandler}>
-            <h3>Drop Us a Message</h3>
+            <h3>Drop Us Your Idea</h3>
             <div className="row">
               <div className="col-md-6">
                 <div className="form-group">

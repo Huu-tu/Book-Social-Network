@@ -31,6 +31,11 @@ const AccountSchema  = new Schema({
         type: String,
         required: false,
     },
+    avatar: {
+        type: String,
+        required: false,
+        data: Buffer,
+    },
     createAt: {
          type: Date,
          default: Date.now,

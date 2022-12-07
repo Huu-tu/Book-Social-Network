@@ -56,10 +56,31 @@ export default function Notification(){
           <div className="media-body">
             <h2 className="notifyH2 mt-2 mb-0">Notification</h2>
             {/*<form onSubmit={deleteAllNotify()}>*/}
-              <button type="button" className="notifyText btn" onClick={deleteAllNotify}>
-                Delete All
+              <button type="button" className="notifyText btn">
+                <a href={"#myModal"}  data-toggle="modal">
+                  Delete All
+                </a>
               </button>
             {/*</form>*/}
+          </div>
+        </div>
+      </div>
+
+      <div id="myModal" className="modal fade">
+        <div className="modal-dialog modal-confirm">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h4 className="modal-title">Confirmation</h4>
+              <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div className="modal-body">
+              <p>Are you sure you want to delete your account? This action cannot be undone and you will be unable to
+                recover any data.</p>
+            </div>
+            <div className="modal-footer">
+              <a href="/notification" className="btn btn-info" data-dismiss="modal">Cancel</a>
+              <a href="/notification" className="btn btn-danger" onClick={deleteAllNotify}>Yes, delete it!</a>
+            </div>
           </div>
         </div>
       </div>

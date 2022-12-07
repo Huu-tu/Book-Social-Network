@@ -140,16 +140,17 @@ export default function Register(){
                                 </div>
                                 <div className="row px-3"> <label className="mb-0">
                                     <h6 className="mb-0 text-sm">Full Name</h6>
-                                    </label> <input type="text" name="fullName" placeholder="john.doe@email.com" onChange={handleChange} value={input.fullName}/> <p>{error.fullName}</p> </div>
+                                    </label> <input type="text" name="fullName" placeholder="john.doe" onChange={handleChange} value={input.fullName}/> <p>{error.fullName}</p> </div>
                                 <div className="row px-3"> <label className="mb-0">
                                     <h6 className="mb-0 text-sm">Phone</h6>
-                                    </label> <input type="text" name="phone" onChange={handleChange} value={input.phone}/> <p>{error.phone}</p></div>
+                                    </label> <input type="text" name="phone" placeholder="0388*****" onChange={handleChange} value={input.phone}/> <p>{error.phone}</p></div>
                                 <div className="row px-3"> <label className="mb-0">
                                     <h6 className="mb-0 text-sm">Email</h6>
-                                    </label> <input type="text" name="email" onChange={handleChange} value={input.email}/> <p>{error.email}</p> </div>
+                                    </label> <input type="text" name="email" placeholder="john.doe@email.com" onChange={handleChange} value={input.email}/> <p>{error.email}</p> </div>
+
                                 <div className="row px-3"> <label className="mb-0">
                                     <h6 className="mb-0 text-sm">Gender</h6>
-                                    </label> <input type="text" name="gender"  onChange={handleChange} value={input.gender}/> <p>{error.gender}</p> </div>
+                                    </label> <input type="text" name="gender" placeholder="male"  onChange={handleChange} value={input.gender}/> <p>{error.gender}</p> </div>
                                 <div className="row mb-4">
                                     <div className="col-md-6"> <button className="btn btn-blue text-center mb-1 py-2">Create Account</button> </div>
                                 </div>

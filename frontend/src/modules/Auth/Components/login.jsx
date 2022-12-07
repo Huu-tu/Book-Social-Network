@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import jwt_decode from "jwt-decode";
 import "../../../styles/auth.css";
 import AccountService from "../Service/service";
@@ -8,7 +7,7 @@ import { GoogleOAuthProvider, GoogleLogin  } from '@react-oauth/google';
 
 export default function Login(){
     let navigate  = useNavigate();
-
+    const [alert,setAlert] = useState('')
     const[input, setInput] = useState({
         username: "",
         password: ""
@@ -54,7 +53,6 @@ export default function Login(){
         const value = await AccountService.login(formData);
 
         if (value.data === "Thap Bai"){
-            console.log("Thap bai")
             navigate("/login")
         }else {
             if (value.data.role === "admin"){
@@ -126,7 +124,7 @@ export default function Login(){
                                     <p>{error.password}</p>
                                 </div>
                                 <div className="row mb-4">
-                                    <div className="col-md-6"> <button className="btn btn-blue text-center mb-1 py-2">Create Account</button> </div>
+                                    <div className="col-md-6"> <button className="btn btn-blue text-center mb-1 py-2">Login Account</button> </div>
                                 </div>
                             </form>
                             <GoogleOAuthProvider clientId={`228114178670-0du3n4r3oci2v9ckdqntb49s0jvp9knp.apps.googleusercontent.com`}>
