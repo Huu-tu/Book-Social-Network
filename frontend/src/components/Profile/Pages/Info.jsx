@@ -13,7 +13,11 @@ export default function Info({ user, profile}){
                 <img src="https://i.pinimg.com/564x/79/34/af/7934af0db29d129ad2ea040e0939f8de.jpg" alt=""/>
               </div>
               <div className="profileinfo-center">
-                <img className="profileinfo-centeravatar" src="https://i.pinimg.com/564x/c5/b5/50/c5b5501c6e48b0bd6b1a1c20de393d4c.jpg" alt=""/>
+                {
+                  profile.image ?
+                    <img className="profileinfo-centeravatar" src={`http://localhost:4000/img/` + `${profile.image}`} alt=""/>
+                    : <img className="profileinfo-centeravatar" src="https://picsum.photos/50/50" alt=""/>
+                }
                 <div className="profileinfo-centerbutton">
                   <h3 className="profileinfo-fullname">{profile.fullName}</h3>
                 </div>

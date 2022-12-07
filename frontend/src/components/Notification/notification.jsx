@@ -69,12 +69,12 @@ export default function Notification(){
       <div id="myModal" className="modal fade">
         <div className="modal-dialog modal-confirm">
           <div className="modal-content">
-            <div className="modal-header">
+            <div className="modal-header" style={{backgroundColor:"#c94747"}}>
               <h4 className="modal-title">Confirmation</h4>
               <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div className="modal-body">
-              <p>Are you sure you want to delete your account? This action cannot be undone and you will be unable to
+              <p>Are you sure you want to delete all notify? This action cannot be undone and you will be unable to
                 recover any data.</p>
             </div>
             <div className="modal-footer">

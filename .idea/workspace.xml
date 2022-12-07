@@ -6,30 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="f573e508-8606-4d07-88e6-d5c5e73a2bfd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/postController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/postController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/postModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/postModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/publics/img/1667282068472--spoiler + hypothesis about Daemon's death.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/publics/img/1670399497197--spoiler + hypothesis about Daemon's death.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/publics/img/1667282157810--Henry Calvill in The house of dragon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/publics/img/1670396048729--Henry Calvill in The house of dragon.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/publics/img/1670393455898--ice.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/publics/img/1670399761307--ice.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/publics/img/1670393538125--harrry.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/publics/img/1670399693525--harrry.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/publics/img/1670393603713--Aemond &amp; Vhagar vs Lucerys &amp; Arrax.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/publics/img/1670399600354--Aemond &amp; Vhagar vs Lucerys &amp; Arrax.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/publics/img/1670393792405--spoiler + hypothesis about Daemon's death.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/publics/img/1670393848430--Henry Calvill in The house of dragon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/notifyController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/notifyController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/0.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/1.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/2.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/3.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/4.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/5.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/6.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/7.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/8.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/8.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/index.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/9.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Post/Components/detailPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/modules/Post/Components/detailPost.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Post/Components/listPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/modules/Post/Components/listPost.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Post/Pages/createPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/modules/Post/Pages/createPost.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Notification/notification.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Notification/notification.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Profile/Pages/Info.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Profile/Pages/Info.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +228,7 @@
       <workItem from="1670315698069" duration="6858000" />
       <workItem from="1670329577870" duration="500000" />
       <workItem from="1670385246758" duration="4542000" />
-      <workItem from="1670391011600" duration="6027000" />
+      <workItem from="1670391011600" duration="8022000" />
     </task>
     <servers />
   </component>

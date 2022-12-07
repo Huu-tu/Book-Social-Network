@@ -92,6 +92,7 @@ export default function Header(){
                 <div className="dropdown-menu">
                   <a className="dropdown-item" href={`/profile/${profile._id}`}>{profile.fullName}</a>
                   <a className="dropdown-item" href="/discussion">Hidden Posts</a>
+                  <a className="dropdown-item" href="/discussion">Saved Posts</a>
                   <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="/" onClick={handleLogOut}>Log out</a>
                 </div>
@@ -101,7 +102,6 @@ export default function Header(){
         </div> {/* end of container */}
       </nav> {/* end of navbar */}
       {/* end of navigation  */}
-
     </>
   )
 }

@@ -6,8 +6,6 @@ class notifyController {
     const { content, text, url, recipient, image } = req.body;
     const senders = req.user._id;
 
-    // const Sender = await Notify.findOne({_id: _id})
-
     const formData = {
       content,
       text,
