@@ -2,7 +2,7 @@ import {Http} from "../../../api/http";
 
 const API_ENDPOINT = {
   UPDATEPROFILE: "/editProfile",
-  DETAILPROFILE: "/detailProfile"
+  DETAILPROFILE: "/detailProfile",
 }
 
 class ProfileServices{

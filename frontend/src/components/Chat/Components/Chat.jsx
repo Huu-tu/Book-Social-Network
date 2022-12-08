@@ -6,48 +6,17 @@ import ChatContainer from "../Pages/ChatContainer";
 import ChatService from "../Service/service";
 import UserService from "../../Header/Service/service";
 import ChatInput from "../Pages/ChatInput";
-import { io } from "socket.io-client";
+import { useSelector } from "react-redux";
 
 export default function Chat(){
-  // const socket = useRef();
+  const socket = useSelector((state) =>state.socket.value)
+  const user = useSelector((state) =>state.profile.value)
+
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState([]);
-  const [currentUser, setCurrentUser] = useState([]);
+  // const [currentUser, setCurrentUser] = useState([]);
 
   const [messages, setMessages] = useState([]);
-  // const [arrivalMessage, setArrivalMessage] = useState(null);
-
-  // useEffect(() =>{
-  //   socket.current = io("ws://localhost:4000");
-  //   socket.current.on("getMessage", data=>{
-  //     setArrivalMessage({
-  //       sender: data.senderId,
-  //       content: data.content,
-  //       createdAt: Date.now(),
-  //     });
-  //   })
-  // }, [])
-
-  // useEffect(() => {
-  //   arrivalMessage &&
-  //   currentChat?.members.includes(arrivalMessage.sender) &&
-  //   setMessages((prev) => [...prev, arrivalMessage]);
-  // }, [arrivalMessage, currentChat]);
-
-
-  const getCurrentUser = async () =>{
-    await UserService.getCurrentUser()
-      .then((res) =>{
-        setCurrentUser(res.data);
-      })
-      .catch((err)=>{
-        console.log(err);
-      })
-  }
-
-  useEffect(() =>{
-    getCurrentUser();
-  });
 
   const getAllUser = async ()=>{
     await ChatService.getAllUser()
@@ -69,7 +38,7 @@ export default function Chat(){
 
   const getValue = async ()=>{
     await ChatService.recieveMessage({
-      from: currentUser._id,
+      from: user._id,
       to: currentChat._id,
     })
       .then((res)=>{
@@ -81,34 +50,22 @@ export default function Chat(){
     getValue()
   },[currentChat])
 
-  // useEffect(() =>{
-  //   // console.log(contacts.username)
-  //   socket.current.emit("addUser", contacts)
-  //   socket.current.on("getUsers", users =>{
-  //     console.log(users)
-  //   })
-  // },[contacts])
-
   const handleSendMsg = async (msg) =>{
     await ChatService.sendMessage({
-      from: currentUser._id,
+      from: user._id,
       to: currentChat._id,
       content: msg,
     })
 
-    // let receiverId = currentChat.members.find(
-    //   (member) => member !== contacts._id
-    // );
-
-    // socket.current.emit("send_message",{
-    //   senderId: currentUser._id,
-    //   receiverId: currentChat._id,
-    //   content: msg
-    // })
-
     const msgs = [...messages];
     msgs.push({ fromSelf: true, chat: msg });
     setMessages(msgs);
+
+    socket?.emit('addMessage',{
+      from: user._id,
+      to: currentChat._id,
+      content: msg,
+    })
   }
 
   return(
@@ -119,9 +76,6 @@ export default function Chat(){
           <div className="col-lg-12">
             <div className="card chat-app">
               <Contacts users={contacts} changeChat={handleChatChange}/>
-              {/*<ChatContainer*/}
-              {/*  currentChat={currentChat} currentUser={currentUser}*/}
-              {/*/>*/}
 
               <div className="chat">
                 <div className="chat-header clearfix">

@@ -1,26 +1,16 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import PostService from "../Service/service";
+import { useSelector } from "react-redux";
+import NotifyService from "../../../components/Notification/Service/service";
 
-export default function CmtPost(IdPost,CmtPost){
+export default function CmtPost({IdPost, Author, Content, image}){
+  const user = useSelector((state) =>state.profile.value)
+  const socket = useSelector((state) =>state.socket.value)
   const Id_Post = IdPost;
+  const AuthorId = Author
+  const ContentText = Content
+  const IImage = image
   const[input, setInput] = useState("");
-  const[user, setUser] = useState({});
-  // console.log(Cmt_Post)
-
-  const getValue = async ()=>{
-    await PostService.getCurrentUser()
-      .then((res) =>{
-        // console.log(res.data)
-        setUser(res.data)
-      })
-      .catch((err)=>{
-        console.log(err)
-      })
-  }
-
-  useEffect(()=>{
-    getValue()
-  },[])
 
   const handleChange = (event)=>{
     setInput(event.target.value);
@@ -29,16 +19,33 @@ export default function CmtPost(IdPost,CmtPost){
   const handleSubmit = async (event)=>{
     event.preventDefault();
 
-    // console.log({input, Id_Post})
     const newForm = {
       content: input,
       author: user._id,
-      post: Id_Post.IdPost
+      post: IdPost
     }
 
-    await PostService.cmtPost(newForm)
+    const newNotify = {
+      content: ContentText,
+      text:'Comment the Post',
+      url: `http://localhost:3000/detailPost/${Id_Post}`,
+      recipient: AuthorId,
+      image: IImage,
+    }
 
-    window.location.reload();
+    const res = await NotifyService.createNotify(newNotify)
+
+    socket?.emit('createNotify',{
+      ...res.data.notify,
+      user:{
+        user: user.fullName,
+        avatar: image,
+      }
+    })
+
+    await PostService.cmtPost(newForm);
+
+    // window.location.reload();
   }
 
   return(
@@ -53,8 +60,6 @@ export default function CmtPost(IdPost,CmtPost){
 
           <button type="submit" className="btn btn-primary btn-block">Comment</button>
         </form>
-
-        {/*;*/}
       </div>
 
     </>

@@ -56,12 +56,6 @@ export default function ReactionPost({IdPost, IdAuthor, Description, IImage}){
   const onSubmitShare = ()=> {
   }
 
-    const handleNotification = async (receiverName) =>{
-      // socket.emit("sendNotification", {
-      //   senderName: user.fullName,
-      //   receiverName: receiverName
-      // })
-    }
 
   return(
     <>
@@ -69,7 +63,7 @@ export default function ReactionPost({IdPost, IdAuthor, Description, IImage}){
         <ul className="list-inline">
           <li className="list-inline-item">
             <form id="like-form" className="form-inline pull-right" onSubmit={onSubmitLike}>
-              <button type="submit" className="btn btn-light contact" onClick={() =>handleNotification(Author)}>Like</button>
+              <button type="submit" className="btn btn-light contact">Like</button>
             </form>
           </li>
           <li className="list-inline-item">

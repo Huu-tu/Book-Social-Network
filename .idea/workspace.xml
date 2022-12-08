@@ -6,19 +6,50 @@
   <component name="ChangeListManager">
     <list default="true" id="f573e508-8606-4d07-88e6-d5c5e73a2bfd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/notifyController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/notifyController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/postController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/postController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/postRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/postRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/socketServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/socketServer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/0.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/1.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/10.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/11.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/12.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/13.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/13.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/2.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/3.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/4.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/5.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/6.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/7.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/8.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/8.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/8.pack_" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/9.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/SocketioClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/SocketioClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/features/notify/notifySlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/features/notify/notifySlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/App/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Chat/Components/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Chat/Components/Chat.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Notification/notification.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Notification/notification.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Profile/Pages/Info.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Profile/Pages/Info.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Profile/Pages/EditProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Profile/Pages/EditProfile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Profile/Pages/SingleUserPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Profile/Pages/SingleUserPosts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Profile/Service/Service.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Profile/Service/Service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Community/Components/discussion.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Community/Components/group.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Community/Components/popularQuotes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Community/communitySlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Profile/Pages/UpdateSingleUserPost.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Explore/Components/explore.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Explore/exploreSaga.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Explore/exploreSlice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/modules/News/Components/news.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Post/Components/detailPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/modules/Post/Components/detailPost.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Post/Pages/cmtPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/modules/Post/Pages/cmtPost.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Post/Pages/createPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/modules/Post/Pages/createPost.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Post/Pages/reactionPost.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/modules/Post/Pages/reactionPost.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/modules/Post/Service/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/modules/Post/Service/service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/modules/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/modules/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +259,8 @@
       <workItem from="1670315698069" duration="6858000" />
       <workItem from="1670329577870" duration="500000" />
       <workItem from="1670385246758" duration="4542000" />
-      <workItem from="1670391011600" duration="8022000" />
+      <workItem from="1670391011600" duration="20403000" />
+      <workItem from="1670479571063" duration="8217000" />
     </task>
     <servers />
   </component>

@@ -45,7 +45,6 @@ export default function CreatePost(){
   return(
     <>
       <div className="formMain">
-        {/*<Header />*/}
         <div className="container contact-form" style={{ marginTop: "70px" }}>
           <button type="button" className="btn btn-primary" style={{marginTop: "10px"}} onClick={() => { navigate(-1) }}>Go Back</button>
           <div className="contact-image" >

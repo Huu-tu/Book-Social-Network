@@ -1,5 +1,4 @@
 const Post = require('../models/postModel');
-const Account = require('../models/accountModel');
 const Comment = require('../models/cmtModel');
 
 class postController{
@@ -67,6 +66,31 @@ class postController{
       return  res.status(200).json("Success");
     }else {
       res.json("Failed")
+    }
+  }
+
+  async updatePost(req,res){
+    let _id = req.body._id
+    let title = req.body.title;
+    let description = req.body.description;
+
+    if (_id){
+      const post = await Post.findOneAndUpdate({_id: _id},{
+        title, description
+      })
+      res.json({post})
+    }else {
+      console.log("Ko")
+    }
+  }
+
+  async deletePost(req,res){
+    let _id = req.body._id
+
+    if (_id){
+      await Post.findOneAndDelete({_id: _id})
+    }else {
+      console.log("Ko")
     }
   }
 
@@ -139,13 +163,13 @@ class postController{
     try{
       const content = req.body.content;
       const authorId = req.body.author;
-      const postId = req.body.post;
+      const _id = req.body.post;
 
       const formData = {
         content,
       };
 
-      const post = await Post.findOne({_id:postId})
+      const post = await Post.findOne({_id})
 
       const author = await Account.findOne({_id: authorId})
 
@@ -159,7 +183,7 @@ class postController{
         post.save();
       })
     }catch (err){
-      console.log("Thap bai")
+      console.log('Server Error', err);
     }
   }
 

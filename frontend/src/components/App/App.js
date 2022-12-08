@@ -31,6 +31,7 @@ import ManagePosts from "../../modules/Admin/Pages/managePosts";
 import ManageUsers from "../../modules/Admin/Pages/manageUsers";
 import EditProfile from "../Profile/Pages/EditProfile";
 import ProfileAdmin from "../../modules/Admin/Pages/profileAdmin";
+import UpdateSingleUserPost from "../Profile/Pages/UpdateSingleUserPost";
 
 function App() {
   const dispatch = useDispatch();
@@ -94,6 +95,7 @@ function App() {
         <Route path="/profile/:id" element={<Profile />}/>
         <Route path="/profileAdmin/:id" element={<ProfileAdmin />}/>
         <Route path="/editProfile" element={<EditProfile />}/>
+        <Route path="/updateSingleUserPost/:id" element={<UpdateSingleUserPost />}/>
 
         {/*Post*/}
         <Route path="/listBook" element={<ListPost />} />
@@ -102,15 +104,6 @@ function App() {
 
         {/*Chat*/}
         <Route path="/chat" element={<Chat />}/>
-
-        {/*Community*/}
-        <Route path="/group" element={<Group />}/>
-        <Route path="/discussion" element={<Discussion />}/>
-        <Route path="/quote" element={<PopularQuotes />}/>
-
-        {/*Explore*/}
-        <Route path="/explore" element={<Explore />}/>
-        <Route path="/news" element={<News />}/>
 
         {/*Admin*/}
         <Route path="admin" element={<Admin />} />

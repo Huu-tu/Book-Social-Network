@@ -13,11 +13,6 @@ export default function DetailPost(){
   let navigate = useNavigate();
   const { id } = useParams();
   const[data, setData] = useState({});
-  // const socket= useSelector((state) =>state.socket.value)
-
-  // useEffect(()=>{
-  //   socket?.emit("addUser", user);
-  // },[socket, user])
 
   const getValue = async () =>{
     await PostService.detailPost(id)
@@ -80,7 +75,14 @@ export default function DetailPost(){
             Description={`${data.description}`}
             IImage={`${data.image}`}
           />
-          <CmtPost IdPost={`${data._id}`} CmtPost={`${data.comments}`}/>
+
+          <CmtPost
+            IdPost={`${data._id}`}
+            Author={`${data.authorId}`}
+            Content={`${data.description}`}
+            image={`${data.image}`}
+          />
+
           {
             data.comments?.map((comment)=>(
               <ShowCmt CmtPost={`${comment}`}/>

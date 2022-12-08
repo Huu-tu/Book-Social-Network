@@ -25,7 +25,22 @@ export default function SingleUserPosts({id}){
         post.map((item) =>(
           <div className="posts card" >
             <div className="card-header">
-              {item.title}
+              <div className="d-flex justify-content-between align-items-center">
+                <div className="ml-2">
+                  <div className="h5 m-0">{item.title}</div>
+                </div>
+                <div className="dropdown">
+                  <button className="btn btn-link dropdown-toggle" type="button" id="gedf-drop1"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i className="fa fa-ellipsis-h"></i>
+                  </button>
+                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                    <div className="h6 dropdown-header">Configuration</div>
+                    <a className="dropdown-item" href={`/updateSingleUserPost/${item._id}`}>Update</a>
+                    <a className="dropdown-item" href="/">Delete</a>
+                  </div>
+                </div>
+                </div>
             </div>
             <div className="card-body">
               {/*<h5 className="card-title">Special title treatment</h5>*/}

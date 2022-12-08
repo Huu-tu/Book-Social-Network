@@ -41,8 +41,8 @@ class PostServices{
     return Http.get(API_ENDPOINT.GETIMG `/${img}`)
   }
 
-  updatePost(id, data){
-    return Http.post(API_ENDPOINT.UPDATEPOST + `?id=${id}`, data)
+  updatePost(data){
+    return Http.post(API_ENDPOINT.UPDATEPOST, data)
   }
 
   deletePost(id){

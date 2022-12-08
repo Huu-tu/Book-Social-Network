@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import PostService from "../../../modules/Post/Service/service";
 import {useSelector} from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import "../../../modules/Post/Styles/createPost.css"

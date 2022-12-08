@@ -2,32 +2,17 @@ import React, { useEffect, useState} from "react";
 import UserService from "./Service/service";
 import { BsFillChatDotsFill, BsBell, BsPersonCircle, BsFillBookFill, BsSearch } from "react-icons/bs";
 import "./Styles/header.css"
-import NotifyService from "../Notification/Service/service";
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 export default function Header(){
   const profile = useSelector((state) =>state.profile.value)
-  const [notify, setNotify] = useState([]);
+  const notify = useSelector((state) =>state.notify.data)
   const [search, setSearch] = useState('');
   const [users,setUsers]=useState([])
 
   const handleLogOut = async () =>{
     localStorage.removeItem('token')
   }
-
-  const getNotify = async ()=>{
-    await NotifyService.getNotify()
-      .then((res)=>{
-        setNotify(res.data)
-      })
-      .catch((err)=>{
-        console.log(err)
-      })
-  }
-
-  useEffect(()=>{
-    getNotify()
-  },[])
 
   useEffect(()=>{
     if (search){
@@ -39,7 +24,7 @@ export default function Header(){
           console.log("Khong search")
         })
     }else {
-      console.log("Khong co")
+
     }
   },[search])
 
@@ -82,16 +67,16 @@ export default function Header(){
               <li className="nav-item">
                 <a className="nav-link page-scroll" href="/chat"><BsFillChatDotsFill/></a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link page-scroll" href="/createBook"><BsFillBookFill/></a>
-              </li>
+              {/*<li className="nav-item">*/}
+              {/*  <a className="nav-link page-scroll" href="/createBook"><BsFillBookFill/></a>*/}
+              {/*</li>*/}
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                   <BsPersonCircle />
                 </a>
                 <div className="dropdown-menu">
                   <a className="dropdown-item" href={`/profile/${profile._id}`}>{profile.fullName}</a>
-                  <a className="dropdown-item" href="/discussion">Hidden Posts</a>
+                  <a className="dropdown-item" href="/discussion">Your Posts</a>
                   <a className="dropdown-item" href="/discussion">Saved Posts</a>
                   <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="/" onClick={handleLogOut}>Log out</a>
