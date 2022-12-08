@@ -12,6 +12,7 @@ router.post('/createPost', ImgUpload.single('image'), PostController.createPost)
 router.get('/getAuthor/:id', PostController.getAuthor);
 router.get('/detailPost/:id', PostController.detailPost);
 router.post('/updatePost', [AuthJwt.checkLogin],PostController.updatePost);
+router.delete('/deletePost/:id',PostController.deletePost);
 router.post('/likePost', [AuthJwt.checkLogin], PostController.likePost);
 router.post('/disLikePost', [AuthJwt.checkLogin], PostController.disLikePost);
 router.post('/cmtPost', [AuthJwt.checkLogin], PostController.cmtPost);

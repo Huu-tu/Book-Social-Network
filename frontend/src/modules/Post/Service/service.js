@@ -46,7 +46,7 @@ class PostServices{
   }
 
   deletePost(id){
-    return Http.delete(API_ENDPOINT.DELETEPOST + `?id=${id}`)
+    return Http.delete(API_ENDPOINT.DELETEPOST + `/${id}`)
   }
 
   likePost(id){

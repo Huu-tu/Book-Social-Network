@@ -19,6 +19,12 @@ export default function SingleUserPosts({id}){
     getSinglePost()
   },[post])
 
+  const handleDelete = async (id)=>{
+    await PostService.deletePost(id)
+
+    window.location.reload();
+  }
+
   return(
     <>
       {
@@ -37,7 +43,7 @@ export default function SingleUserPosts({id}){
                   <div className="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
                     <div className="h6 dropdown-header">Configuration</div>
                     <a className="dropdown-item" href={`/updateSingleUserPost/${item._id}`}>Update</a>
-                    <a className="dropdown-item" href="/">Delete</a>
+                    <button className="dropdown-item" onClick={() =>handleDelete(item._id)}>Delete</button>
                   </div>
                 </div>
                 </div>

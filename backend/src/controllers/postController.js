@@ -85,7 +85,7 @@ class postController{
   }
 
   async deletePost(req,res){
-    let _id = req.body._id
+    const _id = req.params.id
 
     if (_id){
       await Post.findOneAndDelete({_id: _id})
@@ -97,7 +97,6 @@ class postController{
   async likePost(req,res){
     try{
       const { id } = req.body;
-      // const  _id  = id.IdPost;
       const post = await Post.findOne({_id:id})
       const userId = req.user._id;
       const postLike = post.likes;
