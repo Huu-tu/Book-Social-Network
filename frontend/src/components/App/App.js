@@ -32,6 +32,7 @@ import ManageUsers from "../../modules/Admin/Pages/manageUsers";
 import EditProfile from "../Profile/Pages/EditProfile";
 import ProfileAdmin from "../../modules/Admin/Pages/profileAdmin";
 import UpdateSingleUserPost from "../Profile/Pages/UpdateSingleUserPost";
+import BlockUsers from "../../modules/Admin/Pages/blockUsers";
 
 function App() {
   const dispatch = useDispatch();
@@ -110,6 +111,7 @@ function App() {
         <Route path="chart" element={<ChartAdmin />}/>
         <Route path="managePosts" element={<ManagePosts />}/>
         <Route path="manageUsers" element={<ManageUsers />}/>
+        <Route path="blockUsers" element={<BlockUsers />}/>
         <Route path="user" element={<User />} />
       </Routes>
     </div>

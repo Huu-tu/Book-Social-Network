@@ -37,10 +37,6 @@ class PostServices{
     return Http.get(API_ENDPOINT.GETSINGLEPOST + `/${id}`)
   }
 
-  getImg(img){
-    return Http.get(API_ENDPOINT.GETIMG `/${img}`)
-  }
-
   updatePost(data){
     return Http.post(API_ENDPOINT.UPDATEPOST, data)
   }
@@ -55,10 +51,6 @@ class PostServices{
 
   disLikePost(id){
     return Http.putReactPost(API_ENDPOINT.DISLIKEPOST, {id})
-  }
-
-  getCurrentUser(){
-    return Http.get(API_ENDPOINT.GETCURRENTUSER)
   }
 
   cmtGet(id){

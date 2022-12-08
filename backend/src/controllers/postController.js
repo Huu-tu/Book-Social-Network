@@ -185,14 +185,6 @@ class postController{
       console.log('Server Error', err);
     }
   }
-
-  async unCmtPost(req,res){
-    try{
-
-    }catch (err){
-
-    }
-  }
 }
 
 module.exports = new postController();

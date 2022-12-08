@@ -22,7 +22,10 @@ export default function ManageUsers(){
     getValue()
   },[])
 
-  console.log(users)
+  const handleBlock = async (id) =>{
+    await AccountService.blockAccount(id)
+  }
+
   return(
     <>
       <HeaderAdmin />
@@ -31,7 +34,10 @@ export default function ManageUsers(){
           <div className="card-body ManagePostBody">
             <h4 className="card-title">Manage User</h4>
             <h6 className="card-subtitle mb-2 text-muted">Displayed data does not include user password.</h6>
-
+            {/*<a href="#" className="card-link">Card link</a>*/}
+            <a href="/blockUsers" className="btn btn-outline-info card-link">Go to Trash</a>
+            <br/>
+            <br/>
             <table className="table align-middle mb-0 bg-white">
               <thead className="bg-light">
               <tr>
@@ -70,9 +76,7 @@ export default function ManageUsers(){
                     <td>{item.gender}</td>
                     <td>{moment(item.createAt).fromNow()}</td>
                     <td>
-                      <button type="button" className="btn btn-link btn-sm btn-rounded">
-                        Block
-                      </button>
+                      <button type="button" className="btn btn-outline-info" onClick={() => handleBlock(item._id)}>Block</button>
                     </td>
                   </tr>
                 ))

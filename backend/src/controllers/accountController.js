@@ -99,6 +99,21 @@ class accountController{
       }
     }
 
+    async blockAccount(req,res){
+      await Account.delete({_id: req.params.id })
+    }
+
+    async restoreAccount(req,res){
+      await Account.restore({_id: req.params.id })
+    }
+
+    async trashAccount(req,res){
+     const resData = await Account.findDeleted({})
+      const result = resData.filter(item => item.deleted !== false)
+
+     res.json(result)
+    }
+
     async logout(req,res){
       res.cookie('token', '', { maxAge: 1 });
     }
