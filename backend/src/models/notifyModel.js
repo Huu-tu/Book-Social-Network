@@ -1,14 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const NotifySchema = new Schema({
+const NotifySchema = new Schema(
+  {
     content: {
       type: String,
       required: true,
     },
-    isRead:{
-      type:Boolean,
-      default:false
+    isRead: {
+      type: Boolean,
+      default: false,
     },
     text: {
       type: String,
@@ -18,7 +19,7 @@ const NotifySchema = new Schema({
       type: String,
       required: false,
     },
-    image:{
+    image: {
       type: String,
       required: false,
     },
@@ -30,13 +31,12 @@ const NotifySchema = new Schema({
     senders: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Account',
-    }
+    },
   },
   {
-    timestamps:true,
+    timestamps: true,
     collection: 'notifies',
   },
-)
+);
 
-module.exports = mongoose.model('Notify', NotifySchema)
-
+module.exports = mongoose.model('Notify', NotifySchema);

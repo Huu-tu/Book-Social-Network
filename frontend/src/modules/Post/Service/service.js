@@ -8,6 +8,8 @@ const API_ENDPOINT = {
   CREATEPOST: "/post/createPost",
   UPDATEPOST: "/post/updatePost",
   DELETEPOST: "/post/deletePost",
+  CMTDELETEPOST: "/post/cmtDeletePost",
+  CMTUPDATEPOST: "/post/cmtUpdatePost",
   LIKEPOST: "/post/likePost",
   DISLIKEPOST: "/post/disLikePost",
   CMTGET: "/post/cmtGet",
@@ -59,6 +61,14 @@ class PostServices{
 
   cmtPost(data){
     return Http.putReactPost(API_ENDPOINT.CMTPOST, data)
+  }
+
+  cmtDeletePost(id){
+    return Http.delete(API_ENDPOINT.CMTDELETEPOST + `/${id}`)
+  }
+
+  cmtUpdatePost(data){
+    return Http.post(API_ENDPOINT.CMTUPDATEPOST, data)
   }
 }
 

@@ -43,6 +43,18 @@ export class Http  {
         });
     }
 
+    static Friend = (endPoint) =>{
+        return axios.get(BASE_URL + endPoint, {
+            headers: authHeader()
+        });
+    }
+
+    static unFriend = (endPoint) =>{
+        return axios.delete(BASE_URL + endPoint, {
+            headers: authHeader()
+        });
+    }
+
     static put = (endPoint, payload) =>{
         return axios.put(BASE_URL + endPoint, payload)
     }

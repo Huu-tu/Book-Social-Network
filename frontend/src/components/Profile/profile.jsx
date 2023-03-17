@@ -26,7 +26,9 @@ export default function Profile(){
 
   useEffect(()=>{
     getDataProfile()
+    
   },[user])
+
 
   return(
     <>

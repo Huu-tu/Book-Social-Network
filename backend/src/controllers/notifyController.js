@@ -2,7 +2,7 @@ const Account = require('../models/accountModel');
 const Notify = require('../models/notifyModel');
 
 class notifyController {
-  async createNotify(req,res){
+  async createNotify(req, res) {
     const { content, text, url, recipient, image } = req.body;
     const senders = req.user._id;
 
@@ -12,51 +12,56 @@ class notifyController {
       url,
       recipient,
       senders,
-      image
-    }
+      image,
+    };
 
-    const notify = await Notify.create(formData)
-    if (notify){
-      return res.status(200).json({notify});
-    }else {
-      res.json("Failed")
+    const notify = await Notify.create(formData);
+    if (notify) {
+      return res.status(200).json({ notify });
+    } else {
+      res.json('Failed');
     }
   }
 
-  async removeNotify(req,res){
+  async removeNotify(req, res) {
     const notifies = await Notify.findOneAndDelete({
-      _id: req.params._id
-    })
+      _id: req.params._id,
+    });
 
-    res.json(notifies)
+    res.json(notifies);
   }
 
-  async getNotify(req,res){
+  async getNotify(req, res) {
     const recipient = req.user._id;
 
     const notifies = await Notify.find({
-      recipient: recipient
-    }).sort("createdAt").populate("senders", "avatar fullName username")
+      recipient: recipient,
+    })
+      .sort('createdAt')
+      .populate('senders', 'avatar fullName username');
 
-    res.json(notifies)
+    res.json(notifies);
   }
 
-  async isReadNotify(req,res){
-    const notifies = await Notify.findOneAndUpdate({
-      _id: req.params._id
-  }, {isRead :true} )
+  async isReadNotify(req, res) {
+    const notifies = await Notify.findOneAndUpdate(
+      {
+        _id: req.params._id,
+      },
+      { isRead: true },
+    );
 
-    res.json(notifies)
+    res.json(notifies);
   }
 
-  async deleteAllNotifies(req,res){
-    const UserId = req.params.id
-    if (UserId){
+  async deleteAllNotifies(req, res) {
+    const UserId = req.params.id;
+    if (UserId) {
       const notifies = await Notify.deleteMany({
-        recipient: UserId
-      })
+        recipient: UserId,
+      });
 
-      res.json(notifies)
+      res.json(notifies);
     }
   }
 }

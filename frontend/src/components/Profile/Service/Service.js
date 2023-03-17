@@ -3,6 +3,8 @@ import {Http} from "../../../api/http";
 const API_ENDPOINT = {
   UPDATEPROFILE: "/editProfile",
   DETAILPROFILE: "/detailProfile",
+  ADDFRIEND: "/auth/friend",
+  UNFRIEND: "/auth/unFriend",
 }
 
 class ProfileServices{
@@ -12,6 +14,14 @@ class ProfileServices{
 
   detailProfile(id){
     return Http.get(API_ENDPOINT.DETAILPROFILE + `/${id}`)
+  }
+
+  addFriend(id){
+    return Http.Friend(API_ENDPOINT.ADDFRIEND + `/${id}`)
+  }
+  
+  unFriend(id){
+    return Http.unFriend(API_ENDPOINT.UNFRIEND + `/${id}`)
   }
 }
 

@@ -3,65 +3,85 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 const mongoose_delete = require('mongoose-delete');
 
-const AccountSchema  = new Schema({
+const AccountSchema = new Schema(
+  {
     username: {
-        type: String,
-        required: false,
+      type: String,
+      required: false,
     },
     password: {
-        type: String,
-        required: false,
+      type: String,
+      required: false,
     },
     fullName: {
-        type: String,
-        required: false,
+      type: String,
+      required: false,
     },
     phone: {
-        type: Number,
-        required: false,
+      type: Number,
+      required: false,
     },
     email: {
-        type: String,
-        required: false,
+      type: String,
+      required: false,
     },
     gender: {
-        type: String,
-        required: false,
+      type: String,
+      required: false,
     },
     role: {
-        type: String,
-        required: false,
+      type: String,
+      required: false,
     },
     image: {
-        type: String,
-        required: false,
-        data: Buffer,
+      type: String,
+      required: false,
+      data: Buffer,
     },
+    friends: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: 'accounts',
+      },
+    ],
+    following: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: 'accounts',
+      },
+    ],
+    saved: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: 'accounts',
+      },
+    ],
     createAt: {
-         type: Date,
-         default: Date.now,
+      type: Date,
+      default: Date.now,
     },
     updateAt: {
-         type: Date,
-         default: Date.now,
+      type: Date,
+      default: Date.now,
     },
-},
-{
+  },
+  {
     collection: 'accounts',
     timestamp: true,
-});
+  },
+);
 
-AccountSchema.pre('save', async function(next){
-    if (this.isModified('password')){
-        this.password = await bcrypt.hash(this.password, 10);
-    }
-    next();
+AccountSchema.pre('save', async function (next) {
+  if (this.isModified('password')) {
+    this.password = await bcrypt.hash(this.password, 10);
+  }
+  next();
 });
 
 // mongoose.plugin(slug);
 AccountSchema.plugin(mongoose_delete, {
-    deleteAt: true,
-    overrideMethods: 'all',
+  deleteAt: true,
+  overrideMethods: 'all',
 });
 
-module.exports = mongoose.model('Account', AccountSchema)
+module.exports = mongoose.model('Account', AccountSchema);

@@ -53,11 +53,9 @@ export default function Info({ user, profile}){
                   <h6 className="profileinfo-username">Friends: 88</h6>
                 </div>
                 <div className="profileinfo-bottomright">
-                   <div className="profileinfo-stat">
-                  <button type="button" className="profileinfo-statRight btn btn-primary">
-                    <a href={"/editProfile"}>Add Friend</a>
-                  </button>
-                </div>
+                  <div className="profileinfo-stat">
+                    <GlobalFriendBtn classbtn = "profileinfo-centerbutton" user={user} profile={profile}/>
+                  </div>
                 </div>
               </div>
             </div>
