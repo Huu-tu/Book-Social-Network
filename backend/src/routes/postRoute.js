@@ -12,6 +12,14 @@ router.get(
   PostController.showPost,
 );
 router.get(
+  '/showMostReadPosts',
+  PostController.showMostReadPosts,
+);
+router.get(
+  '/showRanDomReadPosts',
+  PostController.showRanDomReadPosts,
+);
+router.get(
   '/getSinglePost/:id',
   [AuthJwt.checkLogin, VerifySignUp.checkPermission],
   PostController.getSinglePost,

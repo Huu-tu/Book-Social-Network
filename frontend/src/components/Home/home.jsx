@@ -6,7 +6,6 @@ import AppFooter from "../../components/Home/Components/AppFooter";
 export default function Home(){
   return(
     <>
-      {/*{<SocketioClient />}*/}
       <AppHeader />
       <AppContent />
       <AppFooter />

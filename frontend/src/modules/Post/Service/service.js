@@ -2,6 +2,7 @@ import {Http} from "../../../api/http";
 
 const API_ENDPOINT = {
   GETSINGLEPOST: "/post/getSinglePost",
+  SHOWMOSTREADPOSTS: "post/showMostReadPosts",
   SHOWPOST: "/post/showPost",
   DETAILPOST: "/post/detailPost",
   GETAUTHOR: "/post/getAuthor",
@@ -21,6 +22,10 @@ const API_ENDPOINT = {
 class PostServices{
   showPost(){
     return Http.get(API_ENDPOINT.SHOWPOST)
+  }
+
+  showMostReadPosts(){
+    return Http.get(API_ENDPOINT.SHOWMOSTREADPOSTS)
   }
 
   getAuthor(id){

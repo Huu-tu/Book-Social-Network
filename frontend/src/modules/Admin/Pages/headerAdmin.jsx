@@ -92,7 +92,7 @@ export default function HeaderAdmin(){
                 <a className="nav-link page-scroll" href="/manageUsers"><BsClipboardData/></a>
               </li>
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                <a className="nav-link dropdown-toggle" href={`#`} role="button" data-toggle="dropdown" aria-expanded="false">
                   <BsPersonCircle />
                 </a>
                 <div className="dropdown-menu">

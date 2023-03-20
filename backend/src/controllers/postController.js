@@ -23,6 +23,18 @@ class postController {
       console.log('Failed');
     }
   }
+  
+  async showMostReadPosts(req, res) {
+    const posts = await Post.find().sort({likes:-1}).limit(1) ; 
+    return res.json(posts);
+  }
+
+  async showRanDomReadPosts(req, res) {
+    const posts = await Post.find(); 
+    const item = posts[Math.floor(Math.random() * posts.length)];
+    return res.json(item);
+  }
+
 
   async getAuthor(req, res) {
     Post.findOne({ _id: req.params.id })

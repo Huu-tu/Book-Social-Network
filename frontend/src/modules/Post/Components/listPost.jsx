@@ -3,16 +3,7 @@ import moment from 'moment'
 import {useSelector} from 'react-redux';
 
 export default function ListPost(){
-  const user = useSelector((state) =>state.profile.value)
-  const socket= useSelector((state) =>state.socket.value)
   const posts = useSelector((state) =>state.post.value)
-
-  const handleNotification = async (receiverName) =>{
-    socket.emit("sendNotification", {
-      senderName: user.fullName,
-      receiverName: receiverName
-    })
-  }
 
   return(
     <div className="col-md-6 gedf-main">

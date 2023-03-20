@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from "react";
 import UserService from "./Service/service";
-import { BsFillChatDotsFill, BsBell, BsPersonCircle, BsFillBookFill, BsSearch } from "react-icons/bs";
+import { BsFillChatDotsFill, BsBell, BsPersonCircle, BsSearch } from "react-icons/bs";
 import "./Styles/header.css"
 import {useSelector} from 'react-redux';
 

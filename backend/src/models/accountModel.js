@@ -53,7 +53,19 @@ const AccountSchema = new Schema(
     saved: [
       {
         type: mongoose.Types.ObjectId,
-        ref: 'accounts',
+        ref: 'posts',
+      },
+    ],
+    hide: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: 'posts',
+      },
+    ],
+    reports: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: 'posts',
       },
     ],
     createAt: {

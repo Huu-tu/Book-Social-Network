@@ -6,7 +6,6 @@ import "../Styles/detail.css";
 import "../Styles/cmt.css";
 import CmtPost from "../Pages/cmtPost";
 import ReactionPost from "../Pages/reactionPost";
-import { useSelector } from "react-redux";
 import ShowCmt from "../Pages/showCmt";
 
 export default function DetailPost(){

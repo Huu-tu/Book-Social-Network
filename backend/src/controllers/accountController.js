@@ -35,12 +35,6 @@ class accountController {
       );
 
       res.json({
-        // username: user.username,
-        // password: user.password,
-        // fullName: user.fullName,
-        // phone: user.phone,
-        // email: user.email,
-        // gender: user.gender,
         role: user.role,
         token: token,
       });

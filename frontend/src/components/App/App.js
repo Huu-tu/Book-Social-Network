@@ -4,10 +4,7 @@ import {
 } from "react-router-dom";
 import {
   Login,
-  Register,
-  Group,
-  Discussion,
-  PopularQuotes, Explore, Admin, User, News,
+  Register, Admin, User,
 } from '../../modules/index';
 import Home from "../Home/home";
 import Main from "../Main/main";

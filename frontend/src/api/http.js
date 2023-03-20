@@ -10,7 +10,7 @@ export class Http  {
     }
 
     static register = (endPoint, payload) =>{
-        return axios.post(BASE_URL + endPoint, payload,{
+        return axios.post(BASE_URL + endPoint, payload,{ 
             headers: {
                 'content-type': 'multipart/form-data',
             }

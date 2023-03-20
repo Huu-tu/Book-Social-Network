@@ -7,7 +7,6 @@ import { GoogleOAuthProvider, GoogleLogin  } from '@react-oauth/google';
 
 export default function Login(){
     let navigate  = useNavigate();
-    const [alert,setAlert] = useState('')
     const[input, setInput] = useState({
         username: "",
         password: ""
