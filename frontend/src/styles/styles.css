@@ -102,7 +102,7 @@ code {
 /*     03. Navigation     */
 /**************************/
 .navbar-custom {
-	background-color: #5f4dee;
+	background-color: lightseagreen;
 	/* box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1); */
 	font: 700 0.875rem/0.875rem "Open Sans", sans-serif;
 	transition: all 0.2s;

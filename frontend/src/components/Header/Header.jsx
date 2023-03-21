@@ -3,10 +3,12 @@ import UserService from "./Service/service";
 import { BsFillChatDotsFill, BsBell, BsPersonCircle, BsSearch } from "react-icons/bs";
 import "./Styles/header.css"
 import {useSelector} from 'react-redux';
+import pusherJs from "pusher-js";
 
 export default function Header(){
   const profile = useSelector((state) =>state.profile.value)
-  const notify = useSelector((state) =>state.notify.data)
+  // const notify = useSelector((state) =>state.notify.data)
+  const [notifications, setNotifications] = useState([]);
   const [search, setSearch] = useState('');
   const [users,setUsers]=useState([])
 
@@ -27,6 +29,25 @@ export default function Header(){
 
     }
   },[search])
+
+  useEffect( () => {
+    const pusher = new pusherJs("8856b27e23cd9a64d102", {
+        cluster: "ap1",
+        encrypted: true,
+      });
+
+      const channel = pusher.subscribe("notify");
+       channel.bind("insert", (res) => {
+        setNotifications([...notifications, res]); 
+      // return console.log(res);
+    });
+
+
+    return () => {
+        channel.unbind_all();
+        channel.unsubscribe();
+    };
+}, [notifications]);
 
   return(
     <>
@@ -61,15 +82,12 @@ export default function Header(){
               <li className="nav-item dropdown">
                 <a className="nav-link page-scroll" href="/notification">
                   <BsBell/>
-                  <span className="badge badge-secondary" style={{position:"absolute", transform:"translate(-10px,18px)",color:'white', fontSize:'10px'}}>{notify && notify.length}</span>
+                  <span className="badge badge-secondary" style={{position:"absolute", transform:"translate(-10px,18px)",color:'white', fontSize:'10px'}}>{notifications && notifications.length}</span>
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link page-scroll" href="/chat"><BsFillChatDotsFill/></a>
               </li>
-              {/*<li className="nav-item">*/}
-              {/*  <a className="nav-link page-scroll" href="/createBook"><BsFillBookFill/></a>*/}
-              {/*</li>*/}
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                   <BsPersonCircle />
@@ -86,7 +104,6 @@ export default function Header(){
           </div>
         </div> {/* end of container */}
       </nav> {/* end of navbar */}
-      {/* end of navigation  */}
     </>
   )
 }

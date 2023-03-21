@@ -30,9 +30,8 @@ class postController {
   }
 
   async showRanDomReadPosts(req, res) {
-    const posts = await Post.find();
-    const item = posts[Math.floor(Math.random() * posts.length)];
-    return res.json(item);
+    const posts = await Post.find().sort({"datetime": -1}).limit(1);
+    return res.json(posts);
   }
 
   async getAuthor(req, res) {

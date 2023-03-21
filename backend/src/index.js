@@ -72,25 +72,6 @@ db.once('open', () => {
       };
     }
   });
-
-  // const notifyCollection = db.collection('notifies');
-  // const notifychangeStream = notifyCollection.watch();
-
-  // notifychangeStream.on('change', (change) => {
-  //   if (change.operationType === 'insert') {
-  //     const notifyDetails = change.fullDocument;
-  //     pusher.trigger('messages', 'insert', {
-  //       content: notifyDetails.content,
-  //       isRead: notifyDetails.isRead,
-  //       text: notifyDetails.text,
-  //       url: notifyDetails.url,
-  //       recipient: notifyDetails.recipient,
-  //       sender: notifyDetails.sender,
-  //     });
-  //   } else {
-  //     console.log('Error Trigger Pusher');
-  //   }
-  // });
 });
 
 app.use(
