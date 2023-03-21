@@ -7,11 +7,11 @@ class accountController {
   //[GET]
   async index(req, res) {
     const data = await Account.find();
-
+ 
     if (data) {
       res.json({ data });
     } else {
-      console.log('Failed');
+      console.log('Failed'); 
     }
   }
 

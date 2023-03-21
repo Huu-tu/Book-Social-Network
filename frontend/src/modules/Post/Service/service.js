@@ -2,7 +2,8 @@ import {Http} from "../../../api/http";
 
 const API_ENDPOINT = {
   GETSINGLEPOST: "/post/getSinglePost",
-  SHOWMOSTREADPOSTS: "post/showMostReadPosts",
+  SHOWMOSTREADPOSTS: "/post/showMostReadPosts",
+  SHOWRANDOMREADPOST:'/post/showRanDomReadPosts',
   SHOWPOST: "/post/showPost",
   DETAILPOST: "/post/detailPost",
   GETAUTHOR: "/post/getAuthor",
@@ -26,6 +27,10 @@ class PostServices{
 
   showMostReadPosts(){
     return Http.get(API_ENDPOINT.SHOWMOSTREADPOSTS)
+  }
+
+  showRanDomReadPosts(){
+    return Http.get(API_ENDPOINT.SHOWRANDOMREADPOST)
   }
 
   getAuthor(id){

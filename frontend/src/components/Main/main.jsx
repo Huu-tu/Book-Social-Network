@@ -10,8 +10,8 @@ export default function Main(){
   return(
     <>
       <Header />
-      <div className="container-fluid gedf-wrapper" style={{ marginTop: "100px" }}>
-        <div className="row">
+      <div className="container-fluid gedf-wrapper" style={{ marginTop: "70px", backgroundColor:"#DCDCDC" }}>
+        <div className="row" style={{paddingTop:"50px"}}>
           <Sidebar />
           <ListPost/>
           <Rightbar />
