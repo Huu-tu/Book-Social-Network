@@ -21,21 +21,46 @@ export default function Rightbar(){
 
   return(
     <div className="col-md-3">
-        <div className="card ">
-          <img src="https://i.pinimg.com/564x/3f/e7/51/3fe7517853b8ccd049269dde28598776.jpg" alt="..." class="card-img                       " />
+              <div id="CarouselTest" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#CarouselTest" data-slide-to="0" class="active"></li>
+            <li data-target="#CarouselTest" data-slide-to="1"></li>
+            <li data-target="#CarouselTest" data-slide-to="2"></li>
+
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="card-img" src="https://i.pinimg.com/564x/f2/34/d5/f234d5123c7dfc53660e8f68bc09cf0c.jpg" alt=""/>
+            </div>
+            <div class="carousel-item">
+              <img class="card-img" src="https://picsum.photos/450/300?image=855" alt=""/>
+            </div>
+            <div class="carousel-item">
+              <img class="card-img" src="https://i.pinimg.com/564x/df/3c/ae/df3caec6bff4d1a5e349c66a04a399ef.jpg" alt=""/>
+            </div>
+            <a class="carousel-control-prev" href="#CarouselTest" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+            <a class="carousel-control-next" href="#CarouselTest" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+          </div>
         </div>
-        {
-        posts.map((item, index) =>(
+
+
+      
         <div className="card gedf-card">
           <div className="card-body">
             <h5 className="card-title">LATEST POSTS</h5>
-            <h6 className="card-subtitle mb-2 text-muted">{item.title}</h6>
-            <p className="card-text">{item.description}.</p>
+            <h6 className="card-subtitle mb-2 text-muted">f</h6>
+            <p className="card-text">gf.</p>
             <a href="#" className="card-link">Read Posts</a>
             {/* {/*<a href="#" className="card-link">Another link</a> */}
           </div>
         </div>
-        ))}
+
         <div className="card gedf-card">
           <div className="card-body">
             <h5 className="card-title">Posts Saved</h5>

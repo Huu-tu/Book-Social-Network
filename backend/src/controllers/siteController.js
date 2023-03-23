@@ -5,11 +5,11 @@ class siteController {
   index(req, res) {
     res.send(result);
   }
+ 
+  currentUser(req, res) { 
+    let userId = req.user._id; 
 
-  currentUser(req, res) {
-    let userId = req.user._id;
-
-    Account.findOne({ _id: userId })
+    Account.findOne({ _id: req.user._id })
       .then((data) => {
         res.json(data);
         // console.log(data)

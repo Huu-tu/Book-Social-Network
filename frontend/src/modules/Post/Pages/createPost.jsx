@@ -20,7 +20,9 @@ export default function CreatePost(){
 
   const handleChange = (event) =>{
     setData({...data, [event.target.name]: event.target.value});
-    setFile(event.target.files[0])
+    if (event.target.files) {
+      setFile(event.target.files[0])
+    }
   }
 
   const submitHandler = async(e)=>{

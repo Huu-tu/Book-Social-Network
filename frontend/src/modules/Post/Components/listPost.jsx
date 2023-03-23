@@ -8,6 +8,8 @@ export default function ListPost(){
   return(
     <div className="col-md-6 gedf-main">
       <button type="button" className="btn btn-outline-info"><a href={"/createPost"}>Create Post</a></button>
+      <br/>
+      <br/>
       {
         posts.map((item) =>(
           <div className="card gedf-card">
@@ -45,11 +47,18 @@ export default function ListPost(){
               </div>
 
             </div>
-            <div className="card-body">
-              <div className="text-muted h7 mb-2"><i className="fa fa-clock-o"></i>{moment(item.createAt).fromNow()}</div>
-              <a className="card-link" href={`/detailPost/${item._id}`}>
-                <h5 className="card-title">{item.title}.</h5>
-              </a>
+            <div class="card-group vgr-cards">
+              <div class="card">
+                <div class="card-img-body">
+                  <img class="card-img2" src={`http://localhost:4000/img/` + `${item.image}`} alt="Card image cap"/>
+                </div>
+                <div class="card-body">
+                <div className="text-muted h7 mb-2"><i className="fa fa-clock-o"></i>{moment(item.createAt).fromNow()}</div>
+                  <h4 class="card-title">{item.title}.</h4>
+                  <p class="card-text">{item.description}.</p>
+                  <a href={`/detailPost/${item._id}`} class="btn btn-outline-primary">View</a>
+                </div>
+              </div>
             </div>
           </div>
         ))

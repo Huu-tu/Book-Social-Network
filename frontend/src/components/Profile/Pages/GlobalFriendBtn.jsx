@@ -5,10 +5,16 @@ import {useSelector} from 'react-redux';
 export default function GlobalFriendBtn({classbtn, user, profile}){
   const [friend,setFriend] = useState(false);
 
-  useEffect(()=>{
+  const getProfile = () =>{
     if(profile.following.includes(user._id)){
-        setFriend(true)
-    }
+      setFriend(true)
+  }else{
+    setFriend(false)
+  }
+  }
+
+  useEffect(()=>{
+    getProfile();
   },[profile.following,user._id])
 
   const addfriend = async () => {

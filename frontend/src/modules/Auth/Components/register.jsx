@@ -76,13 +76,14 @@ export default function Register(){
     };
 
     const handleChange = (event) =>{
-        setInput({...input,[event.target.name]: event.target.value });
-        setFile(event.target.files[0])
-
         setError(validated(input));
+        setInput({...input,[event.target.name]: event.target.value });
+        if (event.target.files) {
+            setFile(event.target.files[0]);
+        }
     }
 
-    const hanldeSubmit = (event)=>{
+    const hanldeSubmit = async (event)=>{
         event.preventDefault();
 
         const formData = {
@@ -96,7 +97,7 @@ export default function Register(){
             role: "user"
         }
 
-        AccountService.register(formData)
+        await AccountService.register(formData)
 
         navigate("/")
     }

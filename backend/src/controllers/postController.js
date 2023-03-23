@@ -30,7 +30,7 @@ class postController {
   }
 
   async showRanDomReadPosts(req, res) {
-    const posts = await Post.find().sort({"datetime": -1}).limit(1);
+    const posts = await Post.find().sort({ datetime: -1 }).limit(1);
     return res.json(posts);
   }
 

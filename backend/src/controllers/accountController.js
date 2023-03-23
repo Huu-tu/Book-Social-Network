@@ -7,11 +7,11 @@ class accountController {
   //[GET]
   async index(req, res) {
     const data = await Account.find();
- 
+
     if (data) {
       res.json({ data });
     } else {
-      console.log('Failed'); 
+      console.log('Failed');
     }
   }
 
@@ -72,7 +72,7 @@ class accountController {
     let phone = req.body.phone;
     let email = req.body.email;
     let gender = req.body.gender;
-    // let image = req.file.filename;
+    let image = req.file.filename;
     let role = req.body.role;
 
     let data = await Account.findOne({ username });
@@ -86,7 +86,7 @@ class accountController {
         phone: phone,
         email: email,
         gender: gender,
-        // image: image,
+        image: image,
         role: role,
       });
       res.json('Thanh cong');
@@ -97,7 +97,7 @@ class accountController {
     try {
       const receiver = await Account.findOne({
         _id: req.params.id,
-      });
+      }); 
 
       const sender = await Account.findOne({
         _id: req.user._id,
