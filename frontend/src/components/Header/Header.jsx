@@ -78,6 +78,22 @@ export default function Header(){
               <li className="nav-item">
                 <a className="nav-link page-scroll" href="/main">Home <span className="sr-only">(current)</span></a>
               </li>
+              <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Messages<span>8</span></a>
+					<div class="dropdown-menu notification" aria-labelledby="navbarDropdown">
+						<div class="card">
+							<div class="card-header"> inbox (8) <span> / Sent </span> <span><a class=""><i class="fas fa-edit"></i></a></span></div>
+							<div class="card-body">
+								<ul class="list-unstyled">
+									<li class="media"> <img class="mr-3" src="" alt="" />
+										<div class="media-body">
+											<p>List-based media object</p></div>
+									</li>
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li>
               <li className="nav-item dropdown">
                 <a className="nav-link page-scroll" href="/notification">
                   <BsBell/>
@@ -98,6 +114,9 @@ export default function Header(){
                   <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="/" onClick={handleLogOut}>Log out</a>
                 </div>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link page-scroll" ></a>
               </li>
             </ul>
           </div>

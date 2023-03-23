@@ -52,4 +52,6 @@
     background: lightseagreen;
 }
 
-
+.dropdown-toggle::after {
+    display: none;
+}
