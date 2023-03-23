@@ -42,7 +42,6 @@ export default function Header(){
       // return console.log(res);
     });
 
-
     return () => {
         channel.unbind_all();
         channel.unsubscribe();

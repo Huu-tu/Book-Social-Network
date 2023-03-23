@@ -21,28 +21,30 @@ export default function Rightbar(){
 
   return(
     <div className="col-md-3">
-      {
-          posts.map((item, index) =>(
-          <div className="card gedf-card">
-            <div className="card-body">
-              <h5 className="card-title">LATEST POSTS</h5>
-              <h6 className="card-subtitle mb-2 text-muted">{item.title}</h6>
-              <p className="card-text">{item.description}.</p>
-              <a href="#" className="card-link">Read Posts</a>
-              {/* {/*<a href="#" className="card-link">Another link</a> */}
-            </div>
+        <div className="card ">
+          <img src="https://i.pinimg.com/564x/3f/e7/51/3fe7517853b8ccd049269dde28598776.jpg" alt="..." class="card-img                       " />
+        </div>
+        {
+        posts.map((item, index) =>(
+        <div className="card gedf-card">
+          <div className="card-body">
+            <h5 className="card-title">LATEST POSTS</h5>
+            <h6 className="card-subtitle mb-2 text-muted">{item.title}</h6>
+            <p className="card-text">{item.description}.</p>
+            <a href="#" className="card-link">Read Posts</a>
+            {/* {/*<a href="#" className="card-link">Another link</a> */}
           </div>
-        ))
-      }
-      <div className="card gedf-card">
-        <div className="card-body">
-          <h5 className="card-title">Posts Saved</h5>
-          <h6 className="card-subtitle mb-2 text-muted">“Be yourself; everyone else is already taken.”</h6>
-          <p className="card-text">― Oscar Wilde.</p>
-          {/*<a href="#" className="card-link">Card link</a>*/}
-          {/*<a href="#" className="card-link">Another link</a>*/}
-        </div> 
-      </div>
+        </div>
+        ))}
+        <div className="card gedf-card">
+          <div className="card-body">
+            <h5 className="card-title">Posts Saved</h5>
+            <h6 className="card-subtitle mb-2 text-muted">“Be yourself; everyone else is already taken.”</h6>
+            <p className="card-text">― Oscar Wilde.</p>
+            {/*<a href="#" className="card-link">Card link</a>*/}
+            {/*<a href="#" className="card-link">Another link</a>*/}
+          </div> 
+        </div>
     </div>
   )
 }

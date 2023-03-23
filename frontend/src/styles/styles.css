@@ -64,9 +64,9 @@ code {
 .btn-solid-lg {
 	display: inline-block;
 	padding: 1.375rem 2.625rem 1.375rem 2.625rem;
-	border: 0.125rem solid #5f4dee;
+	border: 0.125rem solid lightseagreen;
 	border-radius: 2rem;
-	background-color: #5f4dee;
+	background-color: lightseagreen;
 	color: #fff;
 	font: 700 0.875rem/0 "Open Sans", sans-serif;
 	text-decoration: none;
@@ -75,7 +75,7 @@ code {
 
 .btn-solid-lg:hover {
 	background-color: transparent;
-	color: #5f4dee;
+	color: lightseagreen;
 	text-decoration: none;
 }
 
@@ -163,7 +163,7 @@ code {
 /*    04. Header     */
 /*********************/
 .header {
-	background-color: #5f4dee;
+	background-color: lightseagreen;
 }
 
 .header .header-content {
@@ -457,7 +457,7 @@ code {
 .footer {
 	padding-top: 3rem;
 	padding-bottom: 0.5rem;
-	background-color: #5f4dee;
+	background-color: lightseagreen;
 }
 
 .footer .footer-col {
@@ -506,7 +506,7 @@ code {
 .copyright {
 	padding-top: 1rem;
 	padding-bottom: 0.375rem;
-	background-color: #5f4dee;
+	background-color: lightseagreen;
 	text-align: center;
 }
 
