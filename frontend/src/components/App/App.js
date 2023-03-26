@@ -12,6 +12,7 @@ import Chat from "../Chat/Components/Chat";
 import Profile from "../Profile/profile";
 import Notification from "../Notification/notification";
 import ListPost from "../../modules/Post/Components/listPost";
+import ListSavedPosts from "../../modules/Post/Components/listSavedPosts";
 import CreatePost from "../../modules/Post/Pages/createPost";
 import DetailPost from "../../modules/Post/Components/detailPost";
 import {useDispatch} from 'react-redux';
@@ -27,6 +28,8 @@ import EditProfile from "../Profile/Pages/EditProfile";
 import ProfileAdmin from "../../modules/Admin/Pages/profileAdmin";
 import UpdateSingleUserPost from "../Profile/Pages/UpdateSingleUserPost";
 import BlockUsers from "../../modules/Admin/Pages/blockUsers";
+import Book from "../Main/book";
+import Opinion from "../Main/opinion";
 
 function App() {
   const dispatch = useDispatch();
@@ -77,6 +80,8 @@ function App() {
 
         {/*Main*/}
         <Route path="/main" element={<Main />} />
+        <Route path="/opinion" element={<Opinion />} />
+        <Route path="/book" element={<Book />} />
         <Route path="/notification" element={<Notification />}/>
 
         {/*Profile*/}
@@ -89,6 +94,7 @@ function App() {
         <Route path="/listBook" element={<ListPost />} />
         <Route path="/detailPost/:id" element={<DetailPost />} />
         <Route path="/createPost" element={<CreatePost />} />
+        <Route path="/listSavedPosts" element={<ListSavedPosts />} />
 
         {/*Chat*/}
         <Route path="/chat" element={<Chat />}/>

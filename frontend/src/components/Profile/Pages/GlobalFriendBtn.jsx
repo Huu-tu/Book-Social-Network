@@ -8,9 +8,9 @@ export default function GlobalFriendBtn({classbtn, user, profile}){
   const getProfile = () =>{
     if(profile.following.includes(user._id)){
       setFriend(true)
-  }else{
-    setFriend(false)
-  }
+    }else{
+      setFriend(false)
+    }
   }
 
   useEffect(()=>{

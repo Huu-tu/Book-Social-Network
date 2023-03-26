@@ -1,0 +1,22 @@
+.mainContainer{
+    display: flex;
+    width: 100%;
+}
+
+.card {
+    border: none;
+  }
+.card-img {
+    border-radius: 0;
+}
+
+.card-img2 {
+    border-radius: 0;
+     /* height: 320px; */
+    width: 645px; 
+    /* max-width: 100%; */
+    height: auto;  
+}
+
+
+  

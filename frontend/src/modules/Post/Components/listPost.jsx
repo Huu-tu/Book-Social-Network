@@ -1,15 +1,15 @@
 import React from "react";
 import moment from 'moment'
 import {useSelector} from 'react-redux';
+import SavedPost from "../Pages/savedPost";
+import ListType from "../Pages/listType";
 
 export default function ListPost(){
   const posts = useSelector((state) =>state.post.value)
 
   return(
     <div className="col-md-6 gedf-main">
-      <button type="button" className="btn btn-outline-info"><a href={"/createPost"}>Create Post</a></button>
-      <br/>
-      <br/>
+      <ListType />
       {
         posts.map((item) =>(
           <div className="card gedf-card">
@@ -36,12 +36,7 @@ export default function ListPost(){
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i className="fa fa-ellipsis-h"></i>
                     </button>
-                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
-                      <div className="h6 dropdown-header">Configuration</div>
-                      <a className="dropdown-item" href="/">Save</a>
-                      <a className="dropdown-item" href="/">Hide</a>
-                      <a className="dropdown-item" href="/">Report</a>
-                    </div>
+                    <SavedPost IdPost={`${item._id}`} />
                   </div>
                 </div>
               </div>

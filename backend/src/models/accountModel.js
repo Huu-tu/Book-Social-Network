@@ -53,7 +53,7 @@ const AccountSchema = new Schema(
     saved: [
       {
         type: mongoose.Types.ObjectId,
-        ref: 'posts',
+        ref: 'Post',
       },
     ],
     hide: [

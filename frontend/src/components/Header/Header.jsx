@@ -78,7 +78,12 @@ export default function Header(){
               <li className="nav-item">
                 <a className="nav-link page-scroll" href="/main">Home <span className="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Messages<span>8</span></a>
+              <li class="nav-item dropdown "> 
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <BsBell/>
+                  <span className="badge badge-secondary" style={{position:"absolute", transform:"translate(-10px,18px)",color:'white', fontSize:'10px'}}>{notifications && notifications.length}</span>
+              </a>
+              
 					<div class="dropdown-menu notification" aria-labelledby="navbarDropdown">
 						<div class="card">
 							<div class="card-header"> inbox (8) <span> / Sent </span> <span><a class=""><i class="fas fa-edit"></i></a></span></div>
@@ -94,12 +99,16 @@ export default function Header(){
 						</div>
 					</div>
 				</li>
-              <li className="nav-item dropdown">
+
+
+              {/* <li className="nav-item dropdown">
                 <a className="nav-link page-scroll" href="/notification">
                   <BsBell/>
                   <span className="badge badge-secondary" style={{position:"absolute", transform:"translate(-10px,18px)",color:'white', fontSize:'10px'}}>{notifications && notifications.length}</span>
                 </a>
-              </li>
+              </li> */}
+
+
               <li className="nav-item">
                 <a className="nav-link page-scroll" href="/chat"><BsFillChatDotsFill/></a>
               </li>
@@ -110,7 +119,7 @@ export default function Header(){
                 <div className="dropdown-menu">
                   <a className="dropdown-item" href={`/profile/${profile._id}`}>{profile.fullName}</a>
                   <a className="dropdown-item" href="/discussion">Your Posts</a>
-                  <a className="dropdown-item" href="/discussion">Saved Posts</a>
+                  <a className="dropdown-item" href="/listSavedPosts">Saved Posts</a>
                   <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="/" onClick={handleLogOut}>Log out</a>
                 </div>

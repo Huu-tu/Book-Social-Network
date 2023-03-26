@@ -28,6 +28,10 @@ const PostSchema = new Schema(
       required: false,
       data: Buffer,
     },
+    type: {
+      type: String,
+      required: true,
+    },
     comments: [
       {
         type: mongoose.Schema.Types.ObjectId,

@@ -39,7 +39,7 @@
 
 .header-center{
     width: 100%;
-    background-color: #5f4dee;
+    background-color: lightseagreen;
     border-radius: 5px;
     flex:0.8;
     position: relative;
@@ -50,5 +50,5 @@
     margin-top: 5px;
     position: absolute;
     width:250px;
-    background: #5f4dee;
+    background: lightseagreen;
 }

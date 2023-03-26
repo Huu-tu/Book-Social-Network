@@ -16,6 +16,10 @@ const API_ENDPOINT = {
   DISLIKEPOST: "/post/disLikePost",
   CMTGET: "/post/cmtGet",
   CMTPOST: "/post/cmtPost",
+  LISTSAVEDPOST: "/post/getSavedPost",
+  SAVEPOST: "/post/savePost",
+  HIDEPOST: "/post/hidePost",
+  REPORTPOST: "/post/reportPost",
   GETCURRENTUSER: "/currentUser",
   GETIMG: "/img"
 }
@@ -63,6 +67,22 @@ class PostServices{
 
   disLikePost(id){
     return Http.putReactPost(API_ENDPOINT.DISLIKEPOST, {id})
+  }
+
+  listSavedPost(){
+    return Http.get(API_ENDPOINT.LISTSAVEDPOST)
+  }
+
+  savePost(id){
+    return Http.putReactPost(API_ENDPOINT.SAVEPOST, {id})
+  }
+
+  hidePost(id){
+    return Http.putReactPost(API_ENDPOINT.HIDEPOST, {id})
+  }
+
+  reportPost(id){
+    return Http.putReactPost(API_ENDPOINT.REPORTPOST, {id})
   }
 
   cmtGet(id){

@@ -62,12 +62,14 @@ class postController {
     let authorName = req.body.authorName;
     let avatar = req.body.avatar;
     let description = req.body.description;
+    let type = req.body.type;
     let image = req.file.filename;
 
     const data = await Post.create({
       title,
       authorId,
       description,
+      type,
       authorName,
       avatar,
       image,
@@ -209,6 +211,83 @@ class postController {
   }
 
   async cmtDeletePost(req, res) {
+    let id = req.params.id;
+
+    await Comment.findOneAndDelete({ _id: id });
+  }
+
+  async savePost(req, res) {
+    try {
+      const { id } = req.body;
+      const userId = req.user._id;
+      const user = await Account.findOne({ _id: userId });
+      const savedUser = user.saved;
+      if (savedUser.includes(id)) {
+        // console.log('Post already liked');
+        res.json('you have already save this post')
+      } else {
+        savedUser.unshift(id);
+        await user.save();
+        // console.log('Idea liked');
+        return res.json({
+          userId,
+          id,
+        });
+      }
+    } catch (err) {
+      console.log('Server Error', err);
+      // res.json('Server Error')
+    }
+  }
+
+  async unSavePost(req, res) {
+    try {
+      const { id } = req.body;
+      let userId = req.user._id;
+      const user = await Account.findOne({ _id: userId });
+      const savedUser = user.saved;
+      if (savedUser.includes(id)) {
+        const removeIndex = savedUser
+          .map((saved) => saved.toString())
+          .indexOf(id);
+
+          savedUser.splice(removeIndex, 1);
+        // idea.vote -= 1;
+        await user.save();
+        res.json('Thanh cong');
+      } else {
+        res.json('Post not been saved')
+      }
+    } catch (err) {
+      console.log('Server Error', err);
+    }
+  }
+
+  async getSavedPost(req, res) {
+    const user = req.user._id;
+
+    const savedUser = await Account.findOne({
+      _id: user,
+    }).sort('createdAt').populate('saved','_id title  authorName avatar description image createAt');
+
+    const result = savedUser.saved;
+
+    res.json(result);
+  }
+
+  async hidePost(req, res) {
+    let id = req.params.id;
+
+    await Comment.findOneAndDelete({ _id: id });
+  }
+
+  async unHidePost(req, res) {
+    let id = req.params.id;
+
+    await Comment.findOneAndDelete({ _id: id });
+  }
+
+  async reportPost(req, res) {
     let id = req.params.id;
 
     await Comment.findOneAndDelete({ _id: id });

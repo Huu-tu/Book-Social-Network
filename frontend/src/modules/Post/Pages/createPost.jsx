@@ -11,14 +11,16 @@ export default function CreatePost(){
   const[data, setData] = useState({
     title: "",
     description: "",
+    type:""
   });
-  const user = useSelector((state) =>state.profile.value)
+  const user = useSelector((state) =>state.profile.value);
 
   useEffect(()=>{
     // console.log(user)
   },[user])
 
   const handleChange = (event) =>{
+    console.log({...data, [event.target.name]: event.target.value});
     setData({...data, [event.target.name]: event.target.value});
     if (event.target.files) {
       setFile(event.target.files[0])
@@ -35,6 +37,7 @@ export default function CreatePost(){
       authorName: user.fullName,
       avatar: user.image,
       description: data.description,
+      type: data.type,
       image: file
     }
 
@@ -61,6 +64,13 @@ export default function CreatePost(){
                 </div>
                 <div className="form-group">
                   <input id="image" type="file" name="image" className="form-control" accept=".png,.jpeg,.jpg" onChange={handleChange}/>
+                </div>
+                <div className="form-group">
+                <select id="exampleFormControlSelect1" name="type" class="form-control" value={data.type}  onChange={handleChange}>
+                  <option >Select your type *</option>
+                  <option value={'Opinion'}>Opinion</option>
+                  <option value={'Books'} >Book</option>
+                </select>
                 </div>
                 <div className="form-group">
                   <input type="submit" name="btnSubmit" className="btnContact" value="Create Post"/>

@@ -34,5 +34,12 @@ router.post('/likePost', [AuthJwt.checkLogin], PostController.likePost);
 router.post('/disLikePost', [AuthJwt.checkLogin], PostController.disLikePost);
 router.post('/cmtPost', [AuthJwt.checkLogin], PostController.cmtPost);
 router.get('/cmtGet/:id', [AuthJwt.checkLogin], PostController.cmtGet);
+router.post('/savePost', [AuthJwt.checkLogin], PostController.savePost);
+router.post('/unSavePost', [AuthJwt.checkLogin], PostController.unSavePost);
+router.get('/getSavedPost', [AuthJwt.checkLogin], PostController.getSavedPost);
+router.post('/hidePost/:id', [AuthJwt.checkLogin], PostController.hidePost);
+router.post('/unHidePost/:id', [AuthJwt.checkLogin], PostController.unHidePost);
+router.post('/reportPost/:id', [AuthJwt.checkLogin], PostController.reportPost);
+
 
 module.exports = router;

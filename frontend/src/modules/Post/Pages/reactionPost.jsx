@@ -4,8 +4,6 @@ import { useSelector } from "react-redux";
 import NotifyService from "../../../components/Notification/Service/service";
 
 export default function ReactionPost({IdPost, IdAuthor, Description, IImage}){
-  const user = useSelector((state) =>state.profile.value)
-  const socket= useSelector((state) =>state.socket.value)
 
   const Id_Post = IdPost
   const Author = IdAuthor
@@ -26,15 +24,7 @@ export default function ReactionPost({IdPost, IdAuthor, Description, IImage}){
       image: Image,
     }
 
-    const res = await NotifyService.createNotify(newNotify)
-
-    socket?.emit('createNotify',{
-      ...res.data.notify,
-      user:{
-        user: user.fullName,
-        avatar: Image,
-      }
-    })
+    await NotifyService.createNotify(newNotify)
   }
 
   const onSubmitDisLike = async (event)=>{
