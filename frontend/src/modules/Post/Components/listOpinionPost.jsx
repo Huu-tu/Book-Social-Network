@@ -1,11 +1,26 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import moment from 'moment'
-import {useSelector} from 'react-redux';
 import SavedPost from "../Pages/savedPost";
 import ListType from "../Pages/listType";
+import PostService from "../Service/service";
 
 export default function ListOpinionPost(){
-  const posts = useSelector((state) =>state.post.value)
+  const[posts,setPost]=useState([]);
+
+  const getValue = async ()=>{
+    await PostService.showOpinionPost()
+    .then((res)=>{
+      setPost(res.data)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+
+  }
+
+  useEffect(()=>{
+    getValue();
+  },[posts])
 
   return(
     <div className="col-md-6 gedf-main">

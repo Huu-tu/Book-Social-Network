@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from "react";
 import UserService from "./Service/service";
-import { BsFillChatDotsFill, BsBell, BsPersonCircle, BsSearch } from "react-icons/bs";
+import { BsFillChatDotsFill, BsBell, BsPersonCircle, BsSearch,BsFillBrushFill } from "react-icons/bs";
 import "./Styles/header.css"
 import {useSelector} from 'react-redux';
 import pusherJs from "pusher-js";
@@ -75,8 +75,11 @@ export default function Header(){
 
           <div className="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <a className="nav-link page-scroll" href="/main">Home <span className="sr-only">(current)</span></a>
+              <li className="nav-item" style={{border: "30px"}}>
+                <a className="nav-link page-scroll" href="/createPost">
+                <BsFillBrushFill /> Create Post 
+                  <span className="sr-only">(current)</span>
+                </a>
               </li>
               <li class="nav-item dropdown "> 
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -86,14 +89,23 @@ export default function Header(){
               
 					<div class="dropdown-menu notification" aria-labelledby="navbarDropdown">
 						<div class="card">
-							<div class="card-header"> inbox (8) <span> / Sent </span> <span><a class=""><i class="fas fa-edit"></i></a></span></div>
+							{/* <div class="card-header"> inbox (8) <span> / Sent </span> <span><a class=""><i class="fas fa-edit"></i></a></span></div> */}
 							<div class="card-body">
 								<ul class="list-unstyled">
-									<li class="media"> <img class="mr-3" src="" alt="" />
+									<li class="media"> 
+                  {/* <img class="mr-3" src="" alt="" /> */}
 										<div class="media-body">
-											<p>List-based media object</p></div>
+                      <a href="/notification">
+                        <p>List of notify</p>
+                      </a>
+                    </div>
 									</li>
-									
+                  {/* <li class="media">  */}
+                  {/* <img class="mr-3" src="" alt="" /> */}
+										{/* <div class="media-body">
+											<p>List-based media object</p>
+                    </div>
+									</li> */}
 								</ul>
 							</div>
 						</div>

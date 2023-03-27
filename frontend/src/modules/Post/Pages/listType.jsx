@@ -9,7 +9,7 @@ export default function ListType(){
             <li className="li1"><a href="/main">All Post</a></li>
             <li className="li1"><a href="/opinion">Opinion</a></li>
             <li className="li1"><a href="/book">Books</a></li>
-            <li className="li1"><a href={"/createPost"}>Your Idea</a></li>
+            <li className="li1"><a href={"/createPost"}>Events</a></li>
         </ul>
     </div>
   )

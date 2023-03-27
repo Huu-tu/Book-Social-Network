@@ -11,6 +11,16 @@ router.get(
   [AuthJwt.checkLogin, VerifySignUp.checkPermission],
   PostController.showPost,
 );
+router.get(
+  '/showOpinionPost',
+  // [AuthJwt.checkLogin, VerifySignUp.checkPermission],
+  PostController.showOpinionPost,
+);
+router.get(
+  '/showBookPost',
+  [AuthJwt.checkLogin, VerifySignUp.checkPermission],
+  PostController.showBookPost,
+);
 router.get('/showMostReadPosts', PostController.showMostReadPosts);
 router.get('/showRanDomReadPosts', PostController.showRanDomReadPosts);
 router.get(

@@ -69,7 +69,7 @@ export default function CreatePost(){
                 <select id="exampleFormControlSelect1" name="type" class="form-control" value={data.type}  onChange={handleChange}>
                   <option >Select your type *</option>
                   <option value={'Opinion'}>Opinion</option>
-                  <option value={'Books'} >Book</option>
+                  <option value={'Book'} >Book</option>
                 </select>
                 </div>
                 <div className="form-group">

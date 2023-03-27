@@ -24,6 +24,26 @@ class postController {
     }
   }
 
+  async showOpinionPost(req, res) { 
+    const data = await Post.find({type: 'Opinion'});
+    if (data) {
+      res.json(data);
+      // console.log(data)
+    } else {
+      console.log('Failed');
+    }  
+  }
+
+  async showBookPost(req, res) {
+    const data = await Post.find({type: 'Book'});
+    if (data) {
+      res.json(data);
+      // console.log(data)
+    } else {
+      res.json('Failed');
+    }
+  }
+
   async showMostReadPosts(req, res) {
     const posts = await Post.find().sort({ likes: -1 }).limit(1);
     return res.json(posts);

@@ -1,13 +1,14 @@
 import React, { useEffect, useState} from "react";
-import { BsFillChatDotsFill, BsSearch,BsBell, BsPersonCircle, BsClipboardData, BsFillBarChartLineFill, BsCardChecklist } from "react-icons/bs";
+import { BsFillTrophyFill, BsFillBrushFill ,BsFillChatDotsFill, BsSearch,BsBell, BsPersonCircle, BsClipboardData, BsFillBarChartLineFill, BsCardChecklist } from "react-icons/bs";
 import "../Styles/HeaderAdmin.css"
 import {useSelector} from 'react-redux';
-import NotifyService from "../../../components/Notification/Service/service";
 import UserService from "../../../components/Header/Service/service";
+import pusherJs from "pusher-js";
 
 export default function HeaderAdmin(){
-  const profile = useSelector((state) =>state.profile.value);
-  const [notify, setNotify] = useState([]);
+  const profile = useSelector((state) =>state.profile.value)
+  // const notify = useSelector((state) =>state.notify.data)
+  const [notifications, setNotifications] = useState([]);
   const [search, setSearch] = useState('');
   const [users,setUsers]=useState([])
 
@@ -15,23 +16,9 @@ export default function HeaderAdmin(){
     localStorage.removeItem('token')
   }
 
-  const getNotify = async ()=>{
-    await NotifyService.getNotify()
-      .then((res)=>{
-        setNotify(res.data)
-      })
-      .catch((err)=>{
-        console.log(err)
-      })
-  }
-
-  useEffect(()=>{
-    getNotify()
-  },[])
-
   useEffect(()=>{
     if (search){
-      UserService.searchUser(search)
+       UserService.searchUser(search)
         .then((res)=>{
           setUsers(res.data.users)
         })
@@ -39,9 +26,28 @@ export default function HeaderAdmin(){
           console.log("Khong search")
         })
     }else {
-      console.log("Khong co")
+
     }
   },[search])
+
+  useEffect( () => {
+    const pusher = new pusherJs("8856b27e23cd9a64d102", {
+        cluster: "ap1",
+        encrypted: true,
+      });
+
+      const channel = pusher.subscribe("notify");
+       channel.bind("insert", (res) => {
+        setNotifications([...notifications, res]); 
+      // return console.log(res);
+    });
+
+    return () => {
+        channel.unbind_all();
+        channel.unsubscribe();
+    };
+}, [notifications]);
+
 
   return(
     <>
@@ -49,7 +55,7 @@ export default function HeaderAdmin(){
       <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div className="container">
           {/* Image Logo */}
-          <a className="navbar-brand logo-text page-scroll" href="/main">Tivo</a>
+          <a className="navbar-brand logo-text page-scroll" href="/admin">Tivo</a>
           <form className="header-center input-group" >
             <div className="form-outline" style={{paddingTop: "3px"}}>
               <input type="text" id="form1" className="form-control" placeholder="Search Profiles" value={search} onChange={(e)=> setSearch(e.target.value)}/>
@@ -70,15 +76,41 @@ export default function HeaderAdmin(){
 
           <div className="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <a className="nav-link page-scroll" href="/admin">Home <span className="sr-only">(current)</span></a>
-              </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link page-scroll" href="/notification">
-                  <BsBell/>
-                  <span className="badge badge-secondary" style={{position:"absolute", transform:"translate(-10px,18px)",color:'white', fontSize:'10px'}}>{notify && notify.length}</span>
+            <li className="nav-item" style={{border: "30px"}}>
+                <a className="nav-link page-scroll" href="/createPost">
+                <BsFillBrushFill /> Create Post 
+                  <span className="sr-only">(current)</span>
                 </a>
               </li>
+
+
+              <li class="nav-item dropdown "> 
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <BsBell/>
+                  <span className="badge badge-secondary" style={{position:"absolute", transform:"translate(-10px,18px)",color:'white', fontSize:'10px'}}>{notifications && notifications.length}</span>
+              </a>
+              
+					<div class="dropdown-menu notification" aria-labelledby="navbarDropdown">
+						<div class="card">
+							{/* <div class="card-header"> inbox (8) <span> / Sent </span> <span><a class=""><i class="fas fa-edit"></i></a></span></div> */}
+							<div class="card-body">
+								<ul class="list-unstyled">
+									<li class="media"> 
+                  {/* <img class="mr-3" src="" alt="" /> */}
+										<div class="media-body">
+                      <a href="/notification">
+                        <p>List of notify</p>
+                      </a>
+                    </div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li>
+
+
+
               <li className="nav-item">
                 <a className="nav-link page-scroll" href="/chat"><BsFillChatDotsFill/></a>
               </li>
@@ -91,13 +123,17 @@ export default function HeaderAdmin(){
               <li className="nav-item">
                 <a className="nav-link page-scroll" href="/manageUsers"><BsClipboardData/></a>
               </li>
+              <li className="nav-item">
+                <a className="nav-link page-scroll" href="/manageUsers"><BsFillTrophyFill/></a>
+              </li>
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href={`#`} role="button" data-toggle="dropdown" aria-expanded="false">
+                <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                   <BsPersonCircle />
                 </a>
                 <div className="dropdown-menu">
-                  <a className="dropdown-item" href={`/profileAdmin/${profile._id}`}>{profile.fullName}</a>
-                  <a className="dropdown-item" href="/discussion">Discussions</a>
+                  <a className="dropdown-item" href={`/profile/${profile._id}`}>{profile.fullName}</a>
+                  <a className="dropdown-item" href="/discussion">Your Posts</a>
+                  <a className="dropdown-item" href="/listSavedPosts">Saved Posts</a>
                   <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="/" onClick={handleLogOut}>Log out</a>
                 </div>

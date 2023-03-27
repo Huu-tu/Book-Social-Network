@@ -5,6 +5,8 @@ const API_ENDPOINT = {
   SHOWMOSTREADPOSTS: "/post/showMostReadPosts",
   SHOWRANDOMREADPOST:'/post/showRanDomReadPosts',
   SHOWPOST: "/post/showPost",
+  SHOWOPINIONPOST: "/post/showOpinionPost",
+  SHOWBOOKPOST: "/post/showBookPost",
   DETAILPOST: "/post/detailPost",
   GETAUTHOR: "/post/getAuthor",
   CREATEPOST: "/post/createPost",
@@ -27,6 +29,14 @@ const API_ENDPOINT = {
 class PostServices{
   showPost(){
     return Http.get(API_ENDPOINT.SHOWPOST)
+  }
+
+  showBookPost(){
+    return Http.get(API_ENDPOINT.SHOWBOOKPOST)
+  }
+
+  showOpinionPost(){
+    return Http.get(API_ENDPOINT.SHOWOPINIONPOST)
   }
 
   showMostReadPosts(){
