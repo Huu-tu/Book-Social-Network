@@ -124,7 +124,7 @@ export default function HeaderAdmin(){
                 <a className="nav-link page-scroll" href="/manageUsers"><BsClipboardData/></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link page-scroll" href="/manageUsers"><BsFillTrophyFill/></a>
+                <a className="nav-link page-scroll" href="/createEvent"><BsFillTrophyFill/></a>
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">

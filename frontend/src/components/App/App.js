@@ -30,6 +30,8 @@ import UpdateSingleUserPost from "../Profile/Pages/UpdateSingleUserPost";
 import BlockUsers from "../../modules/Admin/Pages/blockUsers";
 import Book from "../Main/book";
 import Opinion from "../Main/opinion";
+import Event from "../../modules/Event/event";
+import CreateEvent from "../../modules/Event/pages/createEvent";
 
 function App() {
   const dispatch = useDispatch();
@@ -97,6 +99,11 @@ function App() {
         <Route path="/listSavedPosts" element={<ListSavedPosts />} />
 
         {/*Chat*/}
+        <Route path="/chat" element={<Chat />}/>
+
+        {/*Admin*/}
+        <Route path="/event" element={<Event />}/>
+        <Route path="/createEvent" element={<CreateEvent />}/>
         <Route path="/chat" element={<Chat />}/>
 
         {/*Admin*/}

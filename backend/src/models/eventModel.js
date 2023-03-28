@@ -28,7 +28,6 @@ const EventSchema = new Schema(
         ref: 'Account',
       },
     ],
-
     createAt: {
       type: Date,
       default: Date.now,

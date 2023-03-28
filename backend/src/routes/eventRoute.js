@@ -4,7 +4,7 @@ const EventController = require('../controllers/eventController');
 const AuthJwt = require('../middlewares/authJwt');
 const ImgUpload = require('../middlewares/fileUpload');
 
-router.post('/createEvent', [AuthJwt.checkLogin], EventController.createEvent);
+router.post('/createEvent', [AuthJwt.checkLogin,ImgUpload.single('image'),], EventController.createEvent);
 router.get('/showEvent', [AuthJwt.checkLogin], EventController.showEvent);
 router.get('/detailEvent/:id', [AuthJwt.checkLogin], EventController.detailEvent);
 
