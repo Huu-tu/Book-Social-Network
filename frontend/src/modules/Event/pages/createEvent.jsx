@@ -24,7 +24,7 @@ export default function CreateEvent(){
 
     //post
     const newPost = {
-      title: data.title,
+      title: data.title, 
       description: data.description,
       type: data.type,
       image: file

@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
 export default function CreatePost(){
-  let navigate  = useNavigate();
+  let navigate  = useNavigate(); 
   const [file, setFile] = useState(null);
   const[data, setData] = useState({
     title: "",
@@ -43,7 +43,7 @@ export default function CreatePost(){
 
     await PostService.createPost(newPost)
 
-    navigate('/main')
+    navigate('/admin')
     window.location.reload();
   }
 
