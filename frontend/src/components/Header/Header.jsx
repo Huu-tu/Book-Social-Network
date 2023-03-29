@@ -100,12 +100,62 @@ export default function Header(){
                       </a>
                     </div>
 									</li>
-                  {/* <li class="media">  */}
+                  <li class="media"> 
                   {/* <img class="mr-3" src="" alt="" /> */}
-										{/* <div class="media-body">
-											<p>List-based media object</p>
+										<div class="media-body">
+                      <a href="/notification">
+                        <p>List of notify</p>
+                      </a>
                     </div>
-									</li> */}
+									</li>
+                  <li class="media"> 
+                  {/* <img class="mr-3" src="" alt="" /> */}
+										<div class="media-body">
+                      <a href="/notification">
+                        <p>List of notify</p>
+                      </a>
+                    </div>
+									</li>
+                  <li class="media"> 
+                  {/* <img class="mr-3" src="" alt="" /> */}
+										<div class="media-body">
+                      <a href="/notification">
+                        <p>List of notify</p>
+                      </a>
+                    </div>
+									</li>
+                  <li class="media"> 
+                  {/* <img class="mr-3" src="" alt="" /> */}
+										<div class="media-body">
+                      <a href="/notification">
+                        <p>List of notify</p>
+                      </a>
+                    </div>
+									</li>
+                  <li class="media"> 
+                  {/* <img class="mr-3" src="" alt="" /> */}
+										<div class="media-body">
+                      <a href="/notification">
+                        <p>List of notify</p>
+                      </a>
+                    </div>
+									</li>
+                  <li class="media"> 
+                  {/* <img class="mr-3" src="" alt="" /> */}
+										<div class="media-body">
+                      <a href="/notification">
+                        <p>List of notify</p>
+                      </a>
+                    </div>
+									</li>
+                  <li class="media"> 
+                  {/* <img class="mr-3" src="" alt="" /> */}
+										<div class="media-body">
+                      <a href="/notification">
+                        <p>List of notify</p>
+                      </a>
+                    </div>
+									</li>
 								</ul>
 							</div>
 						</div>

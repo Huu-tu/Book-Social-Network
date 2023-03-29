@@ -13,7 +13,7 @@ const ChatSchema = new Schema(
     // sender:{
     //   type: mongoose.Schema.Types.ObjectId,
     //   ref: 'Account',
-    // }
+    // } 
   },
   {
     collection: 'chats',

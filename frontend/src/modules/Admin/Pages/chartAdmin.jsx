@@ -3,17 +3,19 @@ import HeaderAdmin from "./headerAdmin";
 import LikeBarChart from "./likeBarChart";
 import PieChart from "./pieChart";
 import LineChart from "./lineChart";
-import "../Styles/ChartAdmin.css";
 import CmtBarChart from "./cmtBarChart";
+import "../Styles/ChartAdmin.css";
 
 export default function ChartAdmin(){
   return(
     <>
       <HeaderAdmin />
       <div className="chartAdmin">
+        <br/>
+        <br/>
         <div className="card BarChart">
           <div className="card-header">
-            LikeBarChart
+            Show posts with the most interactions
           </div>
           <div className="card-body">
             <LikeBarChart />
@@ -21,7 +23,7 @@ export default function ChartAdmin(){
         </div>
         <div className="card LineChart">
           <div className="card-header">
-            CommentChart
+            Show the number of interactions with the event
           </div>
           <div className="card-body">
             <CmtBarChart />

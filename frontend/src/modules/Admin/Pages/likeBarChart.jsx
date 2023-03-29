@@ -38,6 +38,12 @@ export default function LikeBarChart(){
           borderColor: "rgb(53, 162, 235)",
           backgroundColor: "rgba(53, 162, 235, 0.4)",
         },
+        {
+          label: "Cmt",
+          data: posts.map(x =>  x.comments.length),
+          borderColor: "rgb(53, 162, 235)",
+          backgroundColor: "rgba(53, 162, 235, 0.4)",
+        },
         // {
         //   label: "Do ",
         //   data: [2, 50, 30, 60, 50],
@@ -55,7 +61,7 @@ export default function LikeBarChart(){
         },
         title: {
           display: true,
-          text: "Whom'st let the dogs out",
+          // text: "Whom'st let the dogs out",
         },
       },
     });

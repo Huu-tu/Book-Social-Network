@@ -55,7 +55,7 @@ export default function CmtBarChart(){
         },
         title: {
           display: true,
-          text: "Whom'st let the dogs out",
+          // text: "Whom'st let the dogs out",
         },
       },
     });

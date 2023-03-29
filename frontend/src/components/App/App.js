@@ -32,6 +32,7 @@ import Book from "../Main/book";
 import Opinion from "../Main/opinion";
 import Event from "../../modules/Event/event";
 import CreateEvent from "../../modules/Event/pages/createEvent";
+import DetailEvent from "../../modules/Event/pages/detailEvent";
 
 function App() {
   const dispatch = useDispatch();
@@ -103,6 +104,7 @@ function App() {
 
         {/*Admin*/}
         <Route path="/event" element={<Event />}/>
+        <Route path="/detailEvent/:id" element={<DetailEvent />}/>
         <Route path="/createEvent" element={<CreateEvent />}/>
         <Route path="/chat" element={<Chat />}/>
 
